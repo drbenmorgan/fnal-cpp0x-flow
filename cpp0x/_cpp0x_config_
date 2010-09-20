@@ -1,0 +1,204 @@
+#ifndef CPP0X
+#define CPP0X
+
+// ======================================================================
+//
+// cpp0x - accommodations for as-yet unsupported C++0X features
+//
+// ----------------------------------------------------------------------
+//
+// This source file is intended for only short-term use.  Once compilers
+// support the necessary C++0X features, this file should be no longer
+// used and should go away.
+//
+// ======================================================================
+
+
+// ----------------------------------------------------------------------
+// Define gcc version test:
+// ----------------------------------------------------------------------
+
+
+#if defined __GNUC_PATCHLEVEL__
+  # define GCC_VERSION 10000 * __GNUC__ \
+                     +  1000 * __GNUC_MINOR__ \
+                     +         __GNUC_PATCHLEVEL__
+
+#elif defined __GNUC_MINOR__
+  # define GCC_VERSION 10000 * __GNUC__ \
+                     +  1000 * __GNUC_MINOR__
+
+#elif defined __GNUC__
+  # define GCC_VERSION 10000 * __GNUC__
+
+#else
+  # define GCC_VERSION 0
+
+#endif  // __GNUC__ ...
+
+# define GCC_IS_AT_LEAST(major, minor, patch) \
+  (GCC_VERSION) >= ((10000*major) + (1000*minor) + patch)
+
+// ----------------------------------------------------------------------
+// Feature identification:
+// ----------------------------------------------------------------------
+
+
+// --- Initially assume _no_ C++0X features are implemented:
+#undef CPP0X_HAS_AUTO
+#undef CPP0X_HAS_CONSTEXPR_FUNCTIONS
+#undef CPP0X_HAS_CONSTEXPR_VARIABLES
+#undef CPP0X_HAS_DECLTYPE
+#undef CPP0X_HAS_EXPLICIT_CONVERSION_OPERATORS
+#undef CPP0X_HAS_FCTN_TEMPLATE_DEFAULT_ARGS
+#undef CPP0X_HAS_LAMBDAS
+#undef CPP0X_HAS_NOEXCEPT
+#undef CPP0X_HAS_NULLPTR_T
+#undef CPP0X_HAS_RVALUE_REFERENCES
+#undef CPP0X_HAS_STATIC_ASSERT
+#undef CPP0X_HAS_VARIADIC_TEMPLATES
+
+#undef CPP0X_HAS_ALGORITHM_MIN_MAX
+#undef CPP0X_HAS_ARRAY
+#undef CPP0X_HAS_DECLVAL
+#undef CPP0X_HAS_FUNCTIONAL_BIND
+#undef CPP0X_HAS_FUNCTIONAL_FUNCTION
+#undef CPP0X_HAS_MEMORY_SHARED_PTR
+#undef CPP0X_HAS_MEMORY_UNIQUE_PTR
+#undef CPP0X_HAS_NUMERIC_IOTA
+#undef CPP0X_HAS_REGEX
+#undef CPP0X_HAS_TYPE_TRAITS
+
+
+// --- Specify, by version, which features are newly-implemented
+#if defined (__GXX_EXPERIMENTAL_CXX0X__)
+
+  #if GCC_IS_AT_LEAST(4,3,0)
+    #define CPP0X_HAS_DECLTYPE
+    #define CPP0X_HAS_FCTN_TEMPLATE_DEFAULT_ARGS
+    #define CPP0X_HAS_RVALUE_REFERENCES
+    #define CPP0X_HAS_STATIC_ASSERT
+    #define CPP0X_HAS_TYPE_TRAITS
+    #define CPP0X_HAS_VARIADIC_TEMPLATES
+  #endif
+
+  #if GCC_IS_AT_LEAST(4,4,0)
+    #define CPP0X_HAS_AUTO
+    #define CPP0X_HAS_EXPLICIT_CONVERSION_OPERATORS
+  #endif
+
+  #if GCC_IS_AT_LEAST(4,5,0)
+    #define CPP0X_HAS_ALGORITHM_MIN_MAX
+    #define CPP0X_HAS_ARRAY
+    #define CPP0X_HAS_FUNCTIONAL_BIND
+    #define CPP0X_HAS_FUNCTIONAL_FUNCTION
+    #define CPP0X_HAS_LAMBDAS
+    #define CPP0X_HAS_MEMORY_SHARED_PTR
+    #define CPP0X_HAS_MEMORY_UNIQUE_PTR
+    #define CPP0X_HAS_NUMERIC_IOTA
+  #endif
+
+  #if GCC_IS_AT_LEAST(4,6,0)
+    #define CPP0X_HAS_NOEXCEPT
+    #define CPP0X_HAS_NULLPTR_T
+  #endif
+
+#endif  // __GXX_EXPERIMENTAL_CXX0X__
+
+
+// ----------------------------------------------------------------------
+// Core feature workarounds:
+// ----------------------------------------------------------------------
+
+
+// --- CPP0X_HAS_CONSTEXPR_FUNCTIONS
+#if defined(CPP0X_HAS_CONSTEXPR_FUNCTIONS)
+  #define CONSTEXPR_FCTN constexpr
+
+#else
+  #define CONSTEXPR_FCTN
+
+#endif  // CPP0X_HAS_CONSTEXPR_FUNCTIONS
+
+
+// --- CPP0X_HAS_CONSTEXPR_VARIABLES
+#if defined(CPP0X_HAS_CONSTEXPR_VARIABLES)
+  #define CONSTEXPR_VAR constexpr
+
+#else
+  #define CONSTEXPR_VAR const
+
+#endif  // CPP0X_HAS_CONSTEXPR_VARIABLES
+
+
+// --- CPP0X_HAS_EXPLICIT_CONVERSION_OPERATORS
+#if defined(CPP0X_HAS_EXPLICIT_CONVERSION_OPERATORS)
+  #define EXPLICIT_CONV_OP explicit
+
+#else
+  #define EXPLICIT_CONV_OP
+
+#endif  // CPP0X_HAS_EXPLICIT_CONVERSION_OPERATORS
+
+
+// --- CPP0X_HAS_NOEXCEPT
+#if defined(CPP0X_HAS_NOEXCEPT)
+
+#else
+  #define noexcept throws()
+
+#endif  // CPP0X_HAS_NOEXCEPT
+
+
+// --- CPP0X_HAS_NULLPTR_T
+#if defined(CPP0X_HAS_NULLPTR_T)
+
+#else
+  namespace {
+    struct nat_ { int for_bool; };
+    typedef  int nat_::*  nullptr_t;
+  }
+  #define nullptr nullptr_t(0)
+
+#endif  // CPP0X_HAS_NULLPTR_T
+
+
+// --- CPP0X_HAS_STATIC_ASSERT
+#if defined(CPP0X_HAS_STATIC_ASSERT)
+  #define STATIC_ASSERT(pred,mesg) static_assert(pred,mesg)
+
+#else
+  #include "boost/static_assert.hpp"
+  #define STATIC_ASSERT(pred,mesg) static_assert(pred,mesg)
+
+#endif  // CPP0X_HAS_STATIC_ASSERT
+
+
+// ----------------------------------------------------------------------
+// If library-based workarounds are needed, ensure they are possible:
+// ----------------------------------------------------------------------
+
+#if ! defined(CPP0X_HAS_STATIC_ASSERT) \
+ || ! defined(CPP0X_HAS_ALGORITHM_MIN_MAX) \
+ || ! defined(CPP0X_HAS_ARRAY) \
+ || ! defined(CPP0X_HAS_DECLVAL) \
+ || ! defined(CPP0X_HAS_FUNCTIONAL_BIND) \
+ || ! defined(CPP0X_HAS_FUNCTIONAL_FUNCTION) \
+ || ! defined(CPP0X_HAS_MEMORY_SHARED_PTR) \
+ || ! defined(CPP0X_HAS_MEMORY_UNIQUE_PTR) \
+ || ! defined(CPP0X_HAS_NUMERIC_IOTA) \
+ || ! defined(CPP0X_HAS_REGEX) \
+ || ! defined(CPP0X_HAS_TYPE_TRAITS) \
+
+  #include "boost/version.hpp"
+  #if BOOST_VERSION < 104200
+    #error "boost library version is too old; can't provide library workarounds"
+  #endif  // BOOST_VERSION
+
+#endif
+
+
+// ======================================================================
+
+
+#endif  // CPP0X
