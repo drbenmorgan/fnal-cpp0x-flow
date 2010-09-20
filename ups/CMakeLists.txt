@@ -8,12 +8,21 @@ execute_process( COMMAND date
                  OUTPUT_VARIABLE datime
                  OUTPUT_STRIP_TRAILING_WHITESPACE )
 
-CONFIGURE_FILE ( ${cpp0x_SOURCE_DIR}/ups/cpp0x.table.in
-                 ${cpp0x_BINARY_DIR}/ups/cpp0x.table @ONLY )
-CONFIGURE_FILE ( ${cpp0x_SOURCE_DIR}/ups/cpp0x.version.in
-                 ${cpp0x_BINARY_DIR}/ups/${version}.version @ONLY )
+configure_file( ${CMAKE_CURRENT_SOURCE_DIR}/cpp0x-config.cmake.in
+                ${CMAKE_CURRENT_BINARY_DIR}/cpp0x-config.cmake @ONLY )
+configure_file( ${CMAKE_CURRENT_SOURCE_DIR}/cpp0x-config-version.cmake.in
+                ${CMAKE_CURRENT_BINARY_DIR}/cpp0x-config-version.cmake @ONLY )
 
-INSTALL (FILES ${cpp0x_BINARY_DIR}/ups/cpp0x.table
+configure_file( ${CMAKE_CURRENT_SOURCE_DIR}/cpp0x.table.in
+                ${CMAKE_CURRENT_BINARY_DIR}/cpp0x.table @ONLY )
+configure_file( ${CMAKE_CURRENT_SOURCE_DIR}/cpp0x.version.in
+                ${CMAKE_CURRENT_BINARY_DIR}/${version}.version @ONLY )
+
+install( FILES ${CMAKE_CURRENT_BINARY_DIR}/cpp0x-config.cmake
+               ${CMAKE_CURRENT_BINARY_DIR}/cpp0x-config-version.cmake
+         DESTINATION ${flavorqual_dir}/lib/cpp0x-${version} )
+
+install( FILES ${CMAKE_CURRENT_BINARY_DIR}/cpp0x.table
          DESTINATION ${version}/ups)
-INSTALL (FILES ${cpp0x_BINARY_DIR}/ups/${version}.version
+install( FILES ${CMAKE_CURRENT_BINARY_DIR}/${version}.version
          DESTINATION ${CMAKE_INSTALL_PREFIX} )

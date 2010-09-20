@@ -2,7 +2,37 @@ FILE = version
 PRODUCT = cpp0x
 VERSION = @version@
 
-FLAVOR = NULL
+FLAVOR = Linux64bit+2.6-2.5
+QUALIFIERS = @qualifier@
+  DECLARER = CET
+  DECLARED = @datime@
+  MODIFIER = CET
+  MODIFIED = @datime@
+  PROD_DIR = cpp0x/@version@
+  UPS_DIR = ups
+  TABLE_FILE = cpp0x.table
+
+FLAVOR = Linux+2.6-2.5
+QUALIFIERS = @qualifier@
+  DECLARER = CET
+  DECLARED = @datime@
+  MODIFIER = CET
+  MODIFIED = @datime@
+  PROD_DIR = cpp0x/@version@
+  UPS_DIR = ups
+  TABLE_FILE = cpp0x.table
+
+FLAVOR = Linux64bit+2.6-2.3.4
+QUALIFIERS = @qualifier@
+  DECLARER = CET
+  DECLARED = @datime@
+  MODIFIER = CET
+  MODIFIED = @datime@
+  PROD_DIR = cpp0x/@version@
+  UPS_DIR = ups
+  TABLE_FILE = cpp0x.table
+
+FLAVOR = Linux+2.6-2.3.4
 QUALIFIERS = @qualifier@
   DECLARER = CET
   DECLARED = @datime@
