@@ -25,13 +25,6 @@ set(CMAKE_SKIP_RPATH) # don't embed path in shared lib's or executables
 enable_testing()
 
 # ----------------------------------------------------------------------
-# describe source tree structure
-
-add_subdirectory(cpp0x) # source code
-add_subdirectory(test)  # test code
-add_subdirectory(ups)   # ups table and config files
-
-# ----------------------------------------------------------------------
 # describe build requirements
 
 set( GCC_VERSION $ENV{GCC_VERSION} )  # compiler
@@ -39,7 +32,12 @@ if( NOT GCC_VERSION )
   message(FATAL_ERROR "Can't locate GCC_VERSION, required for testing cpp0x")
 endif()
 
-include_directories("${PROJECT_SOURCE_DIR}") # cpp0x path
-include_directories( $ENV{BOOST_INC} )       # boost headers
+include_directories( "${PROJECT_SOURCE_DIR}/cpp0x" ) # project's headers
+include_directories( $ENV{BOOST_INC} )               # boost's headers
 
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)  # executables here
+# ----------------------------------------------------------------------
+# describe source tree structure
+
+add_subdirectory(cpp0x) # source code
+add_subdirectory(test)  # test code
+add_subdirectory(ups)   # ups table and config files

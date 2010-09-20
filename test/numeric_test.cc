@@ -12,6 +12,6 @@ int
   main( )
 {
 
-  return u;
+  return 0;
 
 }  // main()
