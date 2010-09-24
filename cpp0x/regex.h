@@ -1,5 +1,5 @@
-#ifndef CPP0X_REGEX
-#define CPP0X_REGEX
+#ifndef CPP0X_REGEX_H
+#define CPP0X_REGEX_H
 
 // ======================================================================
 //
@@ -14,7 +14,7 @@
 // ======================================================================
 
 
-#include "_cpp0x_config_"
+#include "cpp0x/_config_"
 
 
 // ----------------------------------------------------------------------
@@ -24,7 +24,7 @@
   #include <regex>
 
 #else
-  #include <boost/regex.hpp>
+  #include "boost/regex.hpp"
   namespace std {
     namespace regex_constants = boost::regex_constants;
     using boost::regex_error;
@@ -55,4 +55,4 @@
 // ======================================================================
 
 
-#endif  // CPP0X_REGEX
+#endif  // CPP0X_REGEX_H

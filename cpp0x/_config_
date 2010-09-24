@@ -1,5 +1,5 @@
-#ifndef CPP0X
-#define CPP0X
+#ifndef CPP0X_CONFIG_
+#define CPP0X_CONFIG_
 
 // ======================================================================
 //
@@ -145,7 +145,7 @@
 #if defined(CPP0X_HAS_NOEXCEPT)
 
 #else
-  #define noexcept throws()
+  #define noexcept throw()
 
 #endif  // CPP0X_HAS_NOEXCEPT
 
@@ -201,4 +201,4 @@
 // ======================================================================
 
 
-#endif  // CPP0X
+#endif  // CPP0X_CONFIG_

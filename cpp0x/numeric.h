@@ -1,5 +1,5 @@
-#ifndef CPP0X_NUMERIC
-#define CPP0X_NUMERIC
+#ifndef CPP0X_NUMERIC_H
+#define CPP0X_NUMERIC_H
 
 // ======================================================================
 //
@@ -14,7 +14,7 @@
 // ======================================================================
 
 
-#include "_cpp0x_config_"
+#include "cpp0x/_config_"
 
 #include <numeric>
 
@@ -43,4 +43,4 @@
 // ======================================================================
 
 
-#endif  // CPP0X_NUMERIC
+#endif  // CPP0X_NUMERIC_H

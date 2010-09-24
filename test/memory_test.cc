@@ -5,7 +5,7 @@
 // ======================================================================
 
 
-#include "memory.h"
+#include "cpp0x/memory.h"
 
 
 std::shared_ptr<double>  sp = std::make_shared<double>( 3.14 );

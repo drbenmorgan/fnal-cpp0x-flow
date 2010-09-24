@@ -1,5 +1,5 @@
-#ifndef CPP0X_FUNCTIONAL
-#define CPP0X_FUNCTIONAL
+#ifndef CPP0X_FUNCTIONAL_H
+#define CPP0X_FUNCTIONAL_H
 
 // ======================================================================
 //
@@ -14,7 +14,7 @@
 // ======================================================================
 
 
-#include "_cpp0x_config_"
+#include "cpp0x/_config_"
 
 #include <functional>
 
@@ -25,7 +25,7 @@
 #if defined(CPP0X_HAS_FUNCTIONAL_BIND)
 
 #else
-  #include <boost/bind.hpp>
+  #include "boost/bind.hpp"
   namespace std {
     using boost::bind;
     using boost::is_bind_expression;
@@ -52,7 +52,7 @@
 #if defined(CPP0X_HAS_FUNCTIONAL_FUNCTION)
 
 #else
-  #include <boost/function.hpp>
+  #include "boost/function.hpp"
   namespace std {
     using boost::bad_function_call;
     using boost::function;
@@ -64,4 +64,4 @@
 // ======================================================================
 
 
-#endif  // CPP0X_FUNCTIONAL
+#endif  // CPP0X_FUNCTIONAL_H

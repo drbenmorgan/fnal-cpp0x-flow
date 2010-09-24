@@ -1,5 +1,5 @@
-#ifndef CPP0X_MEMORY
-#define CPP0X_MEMORY
+#ifndef CPP0X_MEMORY_H
+#define CPP0X_MEMORY_H
 
 // ======================================================================
 //
@@ -14,7 +14,7 @@
 // ======================================================================
 
 
-#include "_cpp0x_config_"
+#include "cpp0x/_config_"
 
 #include <memory>
 
@@ -24,8 +24,8 @@
 #if defined(CPP0X_HAS_MEMORY_SHARED_PTR)
 
 #else
-  #include <boost/smart_ptr/shared_ptr.hpp>
-  #include <boost/smart_ptr/make_shared.hpp>
+  #include "boost/smart_ptr/shared_ptr.hpp"
+  #include "boost/smart_ptr/make_shared.hpp"
   namespace std {
     using boost::enable_shared_from_this;
     using boost::make_shared;
@@ -54,4 +54,4 @@
 // ======================================================================
 
 
-#endif  // CPP0X_MEMORY
+#endif  // CPP0X_MEMORY_H

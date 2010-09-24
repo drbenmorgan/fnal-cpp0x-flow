@@ -32,8 +32,8 @@ if( NOT GCC_VERSION )
   message(FATAL_ERROR "Can't locate GCC_VERSION, required for testing cpp0x")
 endif()
 
-include_directories( "${PROJECT_SOURCE_DIR}/cpp0x" ) # project's headers
-include_directories( $ENV{BOOST_INC} )               # boost's headers
+include_directories( "${PROJECT_SOURCE_DIR}" ) # project's headers
+include_directories( $ENV{BOOST_INC} )         # boost's headers
 
 # ----------------------------------------------------------------------
 # describe source tree structure

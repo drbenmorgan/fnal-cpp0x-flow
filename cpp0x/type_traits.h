@@ -1,5 +1,5 @@
-#ifndef CPP0X_TYPE_TRAITS
-#define CPP0X_TYPE_TRAITS
+#ifndef CPP0X_TYPE_TRAITS_H
+#define CPP0X_TYPE_TRAITS_H
 
 // ======================================================================
 //
@@ -14,7 +14,7 @@
 // ======================================================================
 
 
-#include "_cpp0x_config_"
+#include "cpp0x/_config_"
 
 
 // ----------------------------------------------------------------------
@@ -24,10 +24,10 @@
   #include <type_traits>
 
 #else
-  #include <boost/mpl/if.hpp>
-  #include <boost/type_traits.hpp>
-  #include <boost/utility/enable_if.hpp>
-  #include <boost/utility/result_of.hpp>
+  #include "boost/mpl/if.hpp"
+  #include "boost/type_traits.hpp"
+  #include "boost/utility/enable_if.hpp"
+  #include "boost/utility/result_of.hpp"
   namespace std {
     // helper class
     using boost::integral_constant;
@@ -180,4 +180,4 @@
 // ======================================================================
 
 
-#endif  // CPP0X_TYPE_TRAITS
+#endif  // CPP0X_TYPE_TRAITS_H

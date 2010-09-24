@@ -1,5 +1,5 @@
-#ifndef CPP0X_ALGORITHM
-#define CPP0X_ALGORITHM
+#ifndef CPP0X_ALGORITHM_H
+#define CPP0X_ALGORITHM_H
 
 // ======================================================================
 //
@@ -14,7 +14,7 @@
 // ======================================================================
 
 
-#include "_cpp0x_config_"
+#include "cpp0x/_config_"
 
 #include <algorithm>
 #include <utility>    // pair
@@ -156,4 +156,4 @@
 // ======================================================================
 
 
-#endif  // CPP0X_ALGORITHM
+#endif  // CPP0X_ALGORITHM_H

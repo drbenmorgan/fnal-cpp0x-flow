@@ -6,7 +6,7 @@
 # identify headers to install, and where they are to be installed
 
 set( HEADERS
-  _cpp0x_config_
+  _config_
   _unique_ptr_
   algorithm.h
   array.h

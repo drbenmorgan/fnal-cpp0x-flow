@@ -4,13 +4,13 @@
 // ======================================================================
 
 
-#include "algorithm"
-#include "array"
-#include "functional"
-#include "memory"
-#include "numeric"
-#include "regex"
-#include "type_traits"
+#include "cpp0x/algorithm.h"
+#include "cpp0x/array.h"
+#include "cpp0x/functional.h"
+#include "cpp0x/memory.h"
+#include "cpp0x/numeric.h"
+#include "cpp0x/regex.h"
+#include "cpp0x/type_traits.h"
 
 
 // array

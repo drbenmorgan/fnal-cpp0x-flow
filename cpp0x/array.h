@@ -1,5 +1,5 @@
-#ifndef CPP0X_ARRAY
-#define CPP0X_ARRAY
+#ifndef CPP0X_ARRAY_H
+#define CPP0X_ARRAY_H
 
 // ======================================================================
 //
@@ -14,7 +14,7 @@
 // ======================================================================
 
 
-#include "_cpp0x_config_"
+#include "cpp0x/_config_"
 
 
 // ----------------------------------------------------------------------
@@ -24,7 +24,7 @@
   #include <array>
 
 #else
-  #include <boost/array.hpp>
+  #include "boost/array.hpp"
   namespace std {
     using boost::array;
   }
@@ -35,4 +35,4 @@
 // ======================================================================
 
 
-#endif  // CPP0X_ARRAY
+#endif  // CPP0X_ARRAY_H
