@@ -8,13 +8,13 @@
 set( HEADERS
   _cpp0x_config_
   _unique_ptr_
-  algorithm
-  array
-  functional
-  memory
-  numeric
-  regex
-  type_traits
+  algorithm.h
+  array.h
+  functional.h
+  memory.h
+  numeric.h
+  regex.h
+  type_traits.h
 )
 
 install( FILES ${HEADERS} DESTINATION ${version}/cpp0x )

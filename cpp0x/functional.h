@@ -25,7 +25,7 @@
 #if defined(CPP0X_HAS_FUNCTIONAL_BIND)
 
 #else
-  #include "boost/bind.hpp"
+  #include <boost/bind.hpp>
   namespace std {
     using boost::bind;
     using boost::is_bind_expression;
@@ -52,7 +52,7 @@
 #if defined(CPP0X_HAS_FUNCTIONAL_FUNCTION)
 
 #else
-  #include "boost/function.hpp"
+  #include <boost/function.hpp>
   namespace std {
     using boost::bad_function_call;
     using boost::function;

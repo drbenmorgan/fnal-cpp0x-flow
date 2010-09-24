@@ -24,7 +24,7 @@
   #include <regex>
 
 #else
-  #include "boost/regex.hpp"
+  #include <boost/regex.hpp>
   namespace std {
     namespace regex_constants = boost::regex_constants;
     using boost::regex_error;

@@ -168,7 +168,7 @@
   #define STATIC_ASSERT(pred,mesg) static_assert(pred,mesg)
 
 #else
-  #include "boost/static_assert.hpp"
+  #include <boost/static_assert.hpp>
   #define STATIC_ASSERT(pred,mesg) static_assert(pred,mesg)
 
 #endif  // CPP0X_HAS_STATIC_ASSERT
@@ -190,7 +190,7 @@
  || ! defined(CPP0X_HAS_REGEX) \
  || ! defined(CPP0X_HAS_TYPE_TRAITS) \
 
-  #include "boost/version.hpp"
+  #include <boost/version.hpp>
   #if BOOST_VERSION < 104200
     #error "boost library version is too old; can't provide library workarounds"
   #endif  // BOOST_VERSION

@@ -24,7 +24,7 @@
   #include <array>
 
 #else
-  #include "boost/array.hpp"
+  #include <boost/array.hpp>
   namespace std {
     using boost::array;
   }

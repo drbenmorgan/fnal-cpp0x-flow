@@ -24,10 +24,10 @@
   #include <type_traits>
 
 #else
-  #include "boost/mpl/if.hpp"
-  #include "boost/type_traits.hpp"
-  #include "boost/utility/enable_if.hpp"
-  #include "boost/utility/result_of.hpp"
+  #include <boost/mpl/if.hpp>
+  #include <boost/type_traits.hpp>
+  #include <boost/utility/enable_if.hpp>
+  #include <boost/utility/result_of.hpp>
   namespace std {
     // helper class
     using boost::integral_constant;
