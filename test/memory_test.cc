@@ -6,6 +6,14 @@
 
 
 #include "cpp0x/memory"
+#include <cstdlib>
+
+
+void
+  ensure( int which, bool claim )
+{ if( not claim )
+    std::exit(which);
+}
 
 
 std::shared_ptr<double>  sp = std::make_shared<double>( 3.14 );

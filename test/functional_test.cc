@@ -6,6 +6,14 @@
 
 
 #include "cpp0x/functional"
+#include <cstdlib>
+
+
+void
+  ensure( int which, bool claim )
+{ if( not claim )
+    std::exit(which);
+}
 
 
 int v( int i,int j ) { return j; }

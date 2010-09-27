@@ -6,6 +6,7 @@
 
 
 #include "cpp0x/algorithm"
+#include <cstdlib>
 
 
 void

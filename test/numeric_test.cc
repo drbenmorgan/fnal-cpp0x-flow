@@ -6,6 +6,7 @@
 
 
 #include "cpp0x/numeric"
+#include <cstdlib>
 
 
 void

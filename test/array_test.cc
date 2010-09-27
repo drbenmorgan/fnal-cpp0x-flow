@@ -7,6 +7,14 @@
 
 #include "cpp0x/array"
 #include <algorithm>
+#include <cstdlib>
+
+
+void
+  ensure( int which, bool claim )
+{ if( not claim )
+    std::exit(which);
+}
 
 
 int
