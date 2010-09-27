@@ -5,7 +5,7 @@
 // ======================================================================
 
 
-#include "cpp0x/functional.h"
+#include "cpp0x/functional"
 
 
 int v( int i,int j ) { return j; }

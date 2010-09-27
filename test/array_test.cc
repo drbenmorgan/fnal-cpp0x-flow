@@ -5,7 +5,7 @@
 // ======================================================================
 
 
-#include "cpp0x/array.h"
+#include "cpp0x/array"
 #include <algorithm>
 
 
