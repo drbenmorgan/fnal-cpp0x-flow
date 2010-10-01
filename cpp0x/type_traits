@@ -167,9 +167,7 @@
                  type;
       };
     #endif  // CPP0X_HAS_VARIADIC_TEMPLATES ...
-
     //underlying_type
-    //result_of
     template< class T >
       struct result_of : public ::boost::result_of<T> { };
   }

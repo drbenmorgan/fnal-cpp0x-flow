@@ -62,6 +62,20 @@
 
 
 // ----------------------------------------------------------------------
+// std::mem_fn, etc.
+
+#if defined(CPP0X_HAS_FUNCTIONAL_MEM_FN)
+
+#else
+  #include "boost/mem_fn.hpp"
+  namespace std {
+    using ::boost::mem_fn;
+  }
+
+#endif  // CPP0X_HAS_FUNCTIONAL_MEM_FN
+
+
+// ----------------------------------------------------------------------
 // std::reference_wrapper, etc.
 
 #if defined(CPP0X_HAS_FUNCTIONAL_REFERENCE_WRAPPER)
