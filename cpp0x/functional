@@ -61,6 +61,22 @@
 #endif  // CPP0X_HAS_FUNCTIONAL_FUNCTION
 
 
+// ----------------------------------------------------------------------
+// std::reference_wrapper, etc.
+
+#if defined(CPP0X_HAS_FUNCTIONAL_REFERENCE_WRAPPER)
+
+#else
+  #include "boost/ref.hpp"
+  namespace std {
+    using ::boost::reference_wrapper;;
+    using ::boost::ref;
+    using ::boost::cref;
+  }
+
+#endif  // CPP0X_HAS_FUNCTIONAL_FUNCTION
+
+
 // ======================================================================
 
 
