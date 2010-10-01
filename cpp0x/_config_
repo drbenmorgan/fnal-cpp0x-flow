@@ -44,7 +44,7 @@
 // ----------------------------------------------------------------------
 
 
-// --- Initially assume _no_ C++0X features are implemented:
+// --- Initially assume _no_ C++0X core features are implemented:
 #undef CPP0X_HAS_AUTO
 #undef CPP0X_HAS_CONSTEXPR_FUNCTIONS
 #undef CPP0X_HAS_CONSTEXPR_VARIABLES
@@ -58,6 +58,7 @@
 #undef CPP0X_HAS_STATIC_ASSERT
 #undef CPP0X_HAS_VARIADIC_TEMPLATES
 
+// --- Initially assume _no_ C++0X library features are implemented:
 #undef CPP0X_HAS_ALGORITHM_MIN_MAX
 #undef CPP0X_HAS_ARRAY
 #undef CPP0X_HAS_DECLVAL
@@ -67,6 +68,7 @@
 #undef CPP0X_HAS_MEMORY_UNIQUE_PTR
 #undef CPP0X_HAS_NUMERIC_IOTA
 #undef CPP0X_HAS_REGEX
+#undef CPP0X_HAS_SYSTEM_ERROR
 #undef CPP0X_HAS_TYPE_TRAITS
 
 
@@ -85,6 +87,7 @@
   #if GCC_IS_AT_LEAST(4,4,0)
     #define CPP0X_HAS_AUTO
     #define CPP0X_HAS_EXPLICIT_CONVERSION_OPERATORS
+    #define CPP0X_HAS_SYSTEM_ERROR
   #endif
 
   #if GCC_IS_AT_LEAST(4,5,0)
@@ -188,6 +191,7 @@
  || ! defined(CPP0X_HAS_MEMORY_UNIQUE_PTR) \
  || ! defined(CPP0X_HAS_NUMERIC_IOTA) \
  || ! defined(CPP0X_HAS_REGEX) \
+ || ! defined(CPP0X_HAS_SYSTEM_ERROR) \
  || ! defined(CPP0X_HAS_TYPE_TRAITS) \
 
   #include <boost/version.hpp>
