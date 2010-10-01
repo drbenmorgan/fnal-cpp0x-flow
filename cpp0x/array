@@ -26,7 +26,7 @@
 #else
   #include "boost/array.hpp"
   namespace std {
-    using boost::array;
+    using ::boost::array;
   }
 
 #endif  // CPP0X_HAS_ARRAY

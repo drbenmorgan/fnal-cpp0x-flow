@@ -27,9 +27,9 @@
 #else
   #include "boost/bind.hpp"
   namespace std {
-    using boost::bind;
-    using boost::is_bind_expression;
-    using boost::is_placeholder;
+    using ::boost::bind;
+    using ::boost::is_bind_expression;
+    using ::boost::is_placeholder;
     namespace placeholders {
       using ::_1;
       using ::_2;
@@ -54,8 +54,8 @@
 #else
   #include "boost/function.hpp"
   namespace std {
-    using boost::bad_function_call;
-    using boost::function;
+    using ::boost::bad_function_call;
+    using ::boost::function;
   }
 
 #endif  // CPP0X_HAS_FUNCTIONAL_FUNCTION

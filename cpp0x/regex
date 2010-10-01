@@ -26,27 +26,27 @@
 #else
   #include "boost/regex.hpp"
   namespace std {
-    namespace regex_constants = boost::regex_constants;
-    using boost::regex_error;
-    using boost::regex_traits;
+    namespace regex_constants = ::boost::regex_constants;
+    using ::boost::regex_error;
+    using ::boost::regex_traits;
 
-    using boost::basic_regex;
-    using boost::regex;
-    using boost::wregex;
+    using ::boost::basic_regex;
+    using ::boost::regex;
+    using ::boost::wregex;
 
-    using boost::swap;
+    using ::boost::swap;
 
-    using boost::sub_match;
-    using boost::csub_match;
-    using boost::wcsub_match;
-    using boost::ssub_match;
-    using boost::wssub_match;
+    using ::boost::sub_match;
+    using ::boost::csub_match;
+    using ::boost::wcsub_match;
+    using ::boost::ssub_match;
+    using ::boost::wssub_match;
 
-    using boost::match_results;
-    using boost::cmatch;
-    using boost::wcmatch;
-    using boost::smatch;
-    using boost::wsmatch;
+    using ::boost::match_results;
+    using ::boost::cmatch;
+    using ::boost::wcmatch;
+    using ::boost::smatch;
+    using ::boost::wsmatch;
   }
 
 #endif  // CPP0X_HAS_REGEX

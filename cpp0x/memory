@@ -27,10 +27,10 @@
   #include "boost/smart_ptr/shared_ptr.hpp"
   #include "boost/smart_ptr/make_shared.hpp"
   namespace std {
-    using boost::enable_shared_from_this;
-    using boost::make_shared;
-    using boost::shared_ptr;
-    using boost::weak_ptr;
+    using ::boost::enable_shared_from_this;
+    using ::boost::make_shared;
+    using ::boost::shared_ptr;
+    using ::boost::weak_ptr;
   }
 
 #endif  // CPP0X_HAS_MEMORY_SHARED_PTR
@@ -44,8 +44,8 @@
 #else
   #include "_unique_ptr_"
   namespace std {
-    using boost::default_delete;
-    using boost::unique_ptr;
+    using ::boost::default_delete;
+    using ::boost::unique_ptr;
   }
 
 #endif  // CPP0X_HAS_MEMORY_UNIQUE_PTR
