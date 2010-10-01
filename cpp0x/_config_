@@ -172,7 +172,7 @@
 
 #else
   #include <boost/static_assert.hpp>
-  #define STATIC_ASSERT(pred,mesg) static_assert(pred,mesg)
+  #define STATIC_ASSERT(pred,mesg) BOOST_STATIC_ASSERT(pred)
 
 #endif  // CPP0X_HAS_STATIC_ASSERT
 
