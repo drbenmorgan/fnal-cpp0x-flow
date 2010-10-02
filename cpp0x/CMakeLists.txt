@@ -15,6 +15,7 @@ set( HEADERS
   numeric
   regex
   system_error
+  tuple
   type_traits
 )
 

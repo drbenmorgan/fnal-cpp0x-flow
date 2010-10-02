@@ -72,6 +72,7 @@
 #undef CPP0X_HAS_NUMERIC_IOTA
 #undef CPP0X_HAS_REGEX
 #undef CPP0X_HAS_SYSTEM_ERROR
+#undef CPP0X_HAS_TUPLE
 #undef CPP0X_HAS_TYPE_TRAITS
 
 
@@ -86,6 +87,7 @@
     #define CPP0X_HAS_FUNCTIONAL_REFERENCE_WRAPPER
     #define CPP0X_HAS_RVALUE_REFERENCES
     #define CPP0X_HAS_STATIC_ASSERT
+    #define CPP0X_HAS_TUPLE
     #define CPP0X_HAS_TYPE_TRAITS
     #define CPP0X_HAS_VARIADIC_TEMPLATES
   #endif
@@ -201,6 +203,7 @@
  || ! defined(CPP0X_HAS_NUMERIC_IOTA) \
  || ! defined(CPP0X_HAS_REGEX) \
  || ! defined(CPP0X_HAS_SYSTEM_ERROR) \
+ || ! defined(CPP0X_HAS_TUPLE) \
  || ! defined(CPP0X_HAS_TYPE_TRAITS) \
 
   #include <boost/version.hpp>
