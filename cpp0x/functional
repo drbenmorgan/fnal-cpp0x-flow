@@ -62,6 +62,20 @@
 
 
 // ----------------------------------------------------------------------
+// std::hash, etc.
+
+#if defined(CPP0X_HAS_FUNCTIONAL_HASH)
+
+#else
+  #include "boost/functional/hash.hpp"
+  namespace std {
+    using ::boost::hash;
+  }
+
+#endif  // CPP0X_HAS_FUNCTIONAL_HASH
+
+
+// ----------------------------------------------------------------------
 // std::mem_fn, etc.
 
 #if defined(CPP0X_HAS_FUNCTIONAL_MEM_FN)
