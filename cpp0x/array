@@ -1,5 +1,5 @@
-#ifndef CPP0X_ARRAY_H
-#define CPP0X_ARRAY_H
+#ifndef CPP0X__ARRAY
+#define CPP0X__ARRAY
 
 // ======================================================================
 //
@@ -35,4 +35,4 @@
 // ======================================================================
 
 
-#endif  // CPP0X_ARRAY_H
+#endif  // CPP0X__ARRAY

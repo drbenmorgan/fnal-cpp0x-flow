@@ -1,5 +1,5 @@
-#ifndef CPP0X_SYSTEM_ERROR_H
-#define CPP0X_SYSTEM_ERROR_H
+#ifndef CPP0X__SYSTEM_ERROR
+#define CPP0X__SYSTEM_ERROR
 
 // ======================================================================
 //
@@ -46,4 +46,4 @@
 // ======================================================================
 
 
-#endif  // CPP0X_SYSTEM_ERROR_H
+#endif  // CPP0X__SYSTEM_ERROR

@@ -1,5 +1,5 @@
-#ifndef CPP0X_TYPE_TRAITS_H
-#define CPP0X_TYPE_TRAITS_H
+#ifndef CPP0X__TYPE_TRAITS
+#define CPP0X__TYPE_TRAITS
 
 // ======================================================================
 //
@@ -178,4 +178,4 @@
 // ======================================================================
 
 
-#endif  // CPP0X_TYPE_TRAITS_H
+#endif  // CPP0X__TYPE_TRAITS

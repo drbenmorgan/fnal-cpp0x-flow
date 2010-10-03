@@ -1,5 +1,5 @@
-#ifndef CPP0X_FUNCTIONAL_H
-#define CPP0X_FUNCTIONAL_H
+#ifndef CPP0X__FUNCTIONAL
+#define CPP0X__FUNCTIONAL
 
 // ======================================================================
 //
@@ -108,4 +108,4 @@
 // ======================================================================
 
 
-#endif  // CPP0X_FUNCTIONAL_H
+#endif  // CPP0X__FUNCTIONAL

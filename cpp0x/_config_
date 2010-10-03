@@ -1,5 +1,5 @@
-#ifndef CPP0X_CONFIG_
-#define CPP0X_CONFIG_
+#ifndef CPP0X___CONFIG_
+#define CPP0X___CONFIG_
 
 // ======================================================================
 //
@@ -217,4 +217,4 @@
 // ======================================================================
 
 
-#endif  // CPP0X_CONFIG_
+#endif  // CPP0X___CONFIG_

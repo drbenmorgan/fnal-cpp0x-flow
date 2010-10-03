@@ -1,5 +1,5 @@
-#ifndef CPP0X_UNIQUE_PTR_HPP
-#define CPP0X_UNIQUE_PTR_HPP
+#ifndef CPP0X___UNIQUE_PTR_
+#define CPP0X___UNIQUE_PTR_
 
 // ======================================================================
 //
@@ -585,4 +585,4 @@ operator>=(const unique_ptr<T1, D1>& x, const unique_ptr<T2, D2>& y)
 
 }  // boost
 
-#endif  // CPP0X_UNIQUE_PTR_HPP
+#endif  // CPP0X___UNIQUE_PTR_

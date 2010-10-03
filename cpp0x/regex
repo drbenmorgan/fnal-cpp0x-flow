@@ -1,5 +1,5 @@
-#ifndef CPP0X_REGEX_H
-#define CPP0X_REGEX_H
+#ifndef CPP0X__REGEX
+#define CPP0X__REGEX
 
 // ======================================================================
 //
@@ -73,4 +73,4 @@
 // ======================================================================
 
 
-#endif  // CPP0X_REGEX_H
+#endif  // CPP0X__REGEX

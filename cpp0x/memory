@@ -1,5 +1,5 @@
-#ifndef CPP0X_MEMORY_H
-#define CPP0X_MEMORY_H
+#ifndef CPP0X__MEMORY
+#define CPP0X__MEMORY
 
 // ======================================================================
 //
@@ -61,4 +61,4 @@
 // ======================================================================
 
 
-#endif  // CPP0X_MEMORY_H
+#endif  // CPP0X__MEMORY

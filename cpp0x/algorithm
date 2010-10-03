@@ -1,5 +1,5 @@
-#ifndef CPP0X_ALGORITHM_H
-#define CPP0X_ALGORITHM_H
+#ifndef CPP0X__ALGORITHM
+#define CPP0X__ALGORITHM
 
 // ======================================================================
 //
@@ -157,4 +157,4 @@
 // ======================================================================
 
 
-#endif  // CPP0X_ALGORITHM_H
+#endif  // CPP0X__ALGORITHM

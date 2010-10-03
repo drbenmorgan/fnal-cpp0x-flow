@@ -1,5 +1,5 @@
-#ifndef CPP0X_TUPLE_H
-#define CPP0X_TUPLE_H
+#ifndef CPP0X__TUPLE
+#define CPP0X__TUPLE
 
 // ======================================================================
 //
@@ -44,4 +44,4 @@
 // ======================================================================
 
 
-#endif  // CPP0X_TUPLE_H
+#endif  // CPP0X__TUPLE
