@@ -10,6 +10,7 @@
 #include "cpp0x/memory"
 #include "cpp0x/numeric"
 #include "cpp0x/regex"
+#include "cpp0x/system_error"
 #include "cpp0x/type_traits"
 
 
