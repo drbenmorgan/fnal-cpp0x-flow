@@ -19,4 +19,4 @@ set( HEADERS
   type_traits
 )
 
-install( FILES ${HEADERS} DESTINATION ${version}/cpp0x )
+install( FILES ${HEADERS} DESTINATION ${version}/include/cpp0x )

@@ -61,9 +61,9 @@ include_directories( $ENV{BOOST_INC} )         # boost's headers
 # ----------------------------------------------------------------------
 # Describe source tree layout:
 
-add_subdirectory(cpp0x) # source code
-add_subdirectory(test)  # test code
-add_subdirectory(ups)   # ups table and config files
+add_subdirectory( ${PROJECT_NAME} ) # source code
+add_subdirectory( test )            # test code
+add_subdirectory( ups )             # ups table and config files
 
 # ----------------------------------------------------------------------
 # Describe build tree layout:
