@@ -37,6 +37,7 @@ if( NOT GCC_VERSION )
            "Can't locate GCC_VERSION, required to test ${PROJECT_NAME}"
          )
 endif()
+message( STATUS "Using gcc ${GCC_VERSION}" )
 
 set( BOOST_VERS $ENV{BOOST_VERSION} )  # boost
 if( NOT BOOST_VERS )
@@ -51,19 +52,20 @@ set( BOOST_INCLUDEDIR $ENV{BOOST_INC} )
 set( BOOST_LIBRARYDIR $ENV{BOOST_LIB} )
 set( Boost_USE_MULTITHREADED ON )
 find_package( Boost 1.42 )  # minimum version required
+message( STATUS "Using boost ${BOOST_VERS} ${BOOST_QUAL}" )
 
 # ----------------------------------------------------------------------
 # Describe include path:
 
-include_directories( "${PROJECT_SOURCE_DIR}" ) # project's headers
-include_directories( $ENV{BOOST_INC} )         # boost's headers
+include_directories( "${PROJECT_SOURCE_DIR}" )  # project's headers
+include_directories( $ENV{BOOST_INC} )          # boost's headers
 
 # ----------------------------------------------------------------------
 # Describe source tree layout:
 
-add_subdirectory( ${PROJECT_NAME} ) # source code
-add_subdirectory( test )            # test code
-add_subdirectory( ups )             # ups table and config files
+add_subdirectory( ${PROJECT_NAME} )  # source code
+add_subdirectory( test )             # test code
+add_subdirectory( ups )              # ups files
 
 # ----------------------------------------------------------------------
 # Describe build tree layout:
