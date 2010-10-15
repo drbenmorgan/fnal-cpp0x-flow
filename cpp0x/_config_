@@ -61,7 +61,6 @@
 // --- Initially assume _no_ C++0X library features are implemented:
 #undef CPP0X_HAS_ALGORITHM_MIN_MAX
 #undef CPP0X_HAS_ARRAY_HDR
-#undef CPP0X_HAS_UTILITY_DECLVAL
 #undef CPP0X_HAS_FUNCTIONAL_BIND
 #undef CPP0X_HAS_FUNCTIONAL_FUNCTION
 #undef CPP0X_HAS_FUNCTIONAL_HASH
@@ -74,6 +73,7 @@
 #undef CPP0X_HAS_SYSTEM_ERROR_HDR
 #undef CPP0X_HAS_TUPLE_HDR
 #undef CPP0X_HAS_TYPE_TRAITS_HDR
+#undef CPP0X_HAS_UTILITY_DECLVAL
 
 
 // --- Specify, by version, which features are newly-implemented
@@ -195,7 +195,6 @@
 #if ! defined CPP0X_HAS_STATIC_ASSERT \
  || ! defined CPP0X_HAS_ALGORITHM_MIN_MAX \
  || ! defined CPP0X_HAS_ARRAY_HDR \
- || ! defined CPP0X_HAS_UTILITY_DECLVAL \
  || ! defined CPP0X_HAS_FUNCTIONAL_BIND \
  || ! defined CPP0X_HAS_FUNCTIONAL_FUNCTION \
  || ! defined CPP0X_HAS_FUNCTIONAL_HASH \
@@ -208,6 +207,7 @@
  || ! defined CPP0X_HAS_SYSTEM_ERROR_HDR \
  || ! defined CPP0X_HAS_TUPLE_HDR \
  || ! defined CPP0X_HAS_TYPE_TRAITS_HDR \
+ || ! defined CPP0X_HAS_UTILITY_DECLVAL \
 
   #include <boost/version.hpp>
   #if BOOST_VERSION < 104200
