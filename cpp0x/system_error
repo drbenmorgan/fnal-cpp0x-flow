@@ -20,7 +20,7 @@
 // ----------------------------------------------------------------------
 // <system_error>
 
-#if defined(CPP0X_HAS_SYSTEM_ERROR)
+#if defined(CPP0X_HAS_SYSTEM_ERROR_HDR)
   #include <system_error>
 
 #else
@@ -40,7 +40,7 @@
     using ::boost::system::system_error;
   }
 
-#endif  // CPP0X_HAS_SYSTEM_ERROR
+#endif  // CPP0X_HAS_SYSTEM_ERROR_HDR
 
 
 // ======================================================================

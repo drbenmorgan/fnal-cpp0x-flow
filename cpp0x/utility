@@ -1,9 +1,9 @@
-#ifndef CPP0X__ARRAY
-#define CPP0X__ARRAY
+#ifndef CPP0X__UTILITY
+#define CPP0X__UTILITY
 
 // ======================================================================
 //
-// array - accommodations for as-yet unsupported C++0X features
+// utility - accommodations for as-yet unsupported C++0X features
 //
 // ----------------------------------------------------------------------
 //
@@ -15,24 +15,24 @@
 
 
 #include "cpp0x/_config_"
+#include <utility>
 
 
 // ----------------------------------------------------------------------
-// <array>
+// CPP0X_HAS_UTILITY_DECLVAL
 
-#if defined(CPP0X_HAS_ARRAY_HDR)
-  #include <array>
+#if defined CPP0X_HAS_UTILITY_DECLVAL
 
 #else
-  #include "boost/array.hpp"
+  #include "cpp0x/_declval_"
   namespace std {
-    using ::boost::array;
+    using ::boost::declval;
   }
 
-#endif  // CPP0X_HAS_ARRAY_HDR
+#endif  // CPP0X_HAS_UTILITY_DECLVAL
 
 
 // ======================================================================
 
 
-#endif  // CPP0X__ARRAY
+#endif  // CPP0X__UTILITY

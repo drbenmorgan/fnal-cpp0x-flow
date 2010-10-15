@@ -14,6 +14,7 @@ add_executable( regex_test        regex_test.cc )
 add_executable( system_error_test system_error_test.cc )
 add_executable( tuple_test        tuple_test.cc )
 add_executable( type_traits_test  type_traits_test.cc )
+add_executable( utility_test      utility_test.cc )
 
 # ----------------------------------------------------------------------
 # identify executables to be run as tests
@@ -27,3 +28,4 @@ add_test( regex_test        ${EXECUTABLE_OUTPUT_PATH}/regex_test )
 add_test( system_error_test ${EXECUTABLE_OUTPUT_PATH}/system_error_test )
 add_test( tuple_test        ${EXECUTABLE_OUTPUT_PATH}/tuple_test )
 add_test( type_traits_test  ${EXECUTABLE_OUTPUT_PATH}/type_traits_test )
+add_test( utility_test      ${EXECUTABLE_OUTPUT_PATH}/utility_test )

@@ -49,7 +49,7 @@
 #if defined(CPP0X_HAS_MEMORY_UNIQUE_PTR)
 
 #else
-  #include "_unique_ptr_"
+  #include "cpp0x/_unique_ptr_"
   namespace std {
     using ::boost::default_delete;
     using ::boost::unique_ptr;

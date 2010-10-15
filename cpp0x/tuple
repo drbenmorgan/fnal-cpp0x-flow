@@ -20,7 +20,7 @@
 // ----------------------------------------------------------------------
 // <tuple>
 
-#if defined(CPP0X_HAS_TUPLE)
+#if defined(CPP0X_HAS_TUPLE_HDR)
   #include <tuple>
 
 #else
@@ -38,7 +38,7 @@
     using ::boost::fusion::tuple_element;
   }
 
-#endif  // CPP0X_HAS_TUPLE
+#endif  // CPP0X_HAS_TUPLE_HDR
 
 
 // ======================================================================

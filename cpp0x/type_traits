@@ -20,7 +20,7 @@
 // ----------------------------------------------------------------------
 // <type_traits>
 
-#if defined(CPP0X_HAS_TYPE_TRAITS)
+#if defined(CPP0X_HAS_TYPE_TRAITS_HDR)
   #include <type_traits>
 
 #else
@@ -28,6 +28,7 @@
   #include "boost/type_traits.hpp"
   #include "boost/utility/enable_if.hpp"
   #include "boost/utility/result_of.hpp"
+  #include "cpp0x/_add_rv_ref_"
   namespace std {
     // helper class
     using ::boost::integral_constant;
@@ -121,13 +122,7 @@
     using ::boost::remove_reference;
     template< class T >
       struct add_lvalue_reference : public ::boost::add_reference<T> { };
-    #if defined(CPP0X_HAS_RVALUE_REFERENCES)
-      template< class T > struct add_rvalue_reference { typedef T&& type; };
-      template<> struct add_rvalue_reference<void> { typedef void type; };
-      template<> struct add_rvalue_reference<void const> { typedef void const type; };
-      template<> struct add_rvalue_reference<void volatile> { typedef void volatile type; };
-      template<> struct add_rvalue_reference<void const volatile> { typedef void const volatile type; };
-    #endif  // CPP0X_HAS_RVALUE_REFERENCES
+    using ::boost::add_rvalue_reference;
 
     // sign modifications
     using ::boost::make_signed;
@@ -151,7 +146,7 @@
       struct conditional : public ::boost::mpl::if_c<b,T,F> { };
     #if    defined(CPP0X_HAS_VARIADIC_TEMPLATES) \
         && defined(CPP0X_HAS_DECLTYPE) \
-        && defined(CPP0X_HAS_DECLVAL)
+        && defined(CPP0X_HAS_UTILITY_DECLVAL)
       template< class ... >
         struct common_type;
       template< class T >
@@ -172,7 +167,7 @@
       struct result_of : public ::boost::result_of<T> { };
   }
 
-#endif  // CPP0X_HAS_TYPE_TRAITS
+#endif  // CPP0X_HAS_TYPE_TRAITS_HDR
 
 
 // ======================================================================

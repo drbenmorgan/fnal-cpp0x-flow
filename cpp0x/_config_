@@ -60,8 +60,8 @@
 
 // --- Initially assume _no_ C++0X library features are implemented:
 #undef CPP0X_HAS_ALGORITHM_MIN_MAX
-#undef CPP0X_HAS_ARRAY
-#undef CPP0X_HAS_DECLVAL
+#undef CPP0X_HAS_ARRAY_HDR
+#undef CPP0X_HAS_UTILITY_DECLVAL
 #undef CPP0X_HAS_FUNCTIONAL_BIND
 #undef CPP0X_HAS_FUNCTIONAL_FUNCTION
 #undef CPP0X_HAS_FUNCTIONAL_HASH
@@ -70,10 +70,10 @@
 #undef CPP0X_HAS_MEMORY_SHARED_PTR
 #undef CPP0X_HAS_MEMORY_UNIQUE_PTR
 #undef CPP0X_HAS_NUMERIC_IOTA
-#undef CPP0X_HAS_REGEX
-#undef CPP0X_HAS_SYSTEM_ERROR
-#undef CPP0X_HAS_TUPLE
-#undef CPP0X_HAS_TYPE_TRAITS
+#undef CPP0X_HAS_REGEX_HDR
+#undef CPP0X_HAS_SYSTEM_ERROR_HDR
+#undef CPP0X_HAS_TUPLE_HDR
+#undef CPP0X_HAS_TYPE_TRAITS_HDR
 
 
 // --- Specify, by version, which features are newly-implemented
@@ -82,28 +82,31 @@
   #if GCC_IS_AT_LEAST(4,3,0)
     #define CPP0X_HAS_DECLTYPE
     #define CPP0X_HAS_FCTN_TEMPLATE_DEFAULT_ARGS
+    #define CPP0X_HAS_RVALUE_REFERENCES
+    #define CPP0X_HAS_STATIC_ASSERT
+    #define CPP0X_HAS_VARIADIC_TEMPLATES
+
     #define CPP0X_HAS_FUNCTIONAL_HASH
     #define CPP0X_HAS_FUNCTIONAL_MEM_FN
     #define CPP0X_HAS_FUNCTIONAL_REFERENCE_WRAPPER
-    #define CPP0X_HAS_RVALUE_REFERENCES
-    #define CPP0X_HAS_STATIC_ASSERT
-    #define CPP0X_HAS_TUPLE
-    #define CPP0X_HAS_TYPE_TRAITS
-    #define CPP0X_HAS_VARIADIC_TEMPLATES
+    #define CPP0X_HAS_TUPLE_HDR
+    #define CPP0X_HAS_TYPE_TRAITS_HDR
   #endif
 
   #if GCC_IS_AT_LEAST(4,4,0)
     #define CPP0X_HAS_AUTO
     #define CPP0X_HAS_EXPLICIT_CONVERSION_OPERATORS
-    #define CPP0X_HAS_SYSTEM_ERROR
+
+    #define CPP0X_HAS_SYSTEM_ERROR_HDR
   #endif
 
   #if GCC_IS_AT_LEAST(4,5,0)
+    #define CPP0X_HAS_LAMBDAS
+
     #define CPP0X_HAS_ALGORITHM_MIN_MAX
-    #define CPP0X_HAS_ARRAY
+    #define CPP0X_HAS_ARRAY_HDR
     #define CPP0X_HAS_FUNCTIONAL_BIND
     #define CPP0X_HAS_FUNCTIONAL_FUNCTION
-    #define CPP0X_HAS_LAMBDAS
     #define CPP0X_HAS_MEMORY_SHARED_PTR
     #define CPP0X_HAS_MEMORY_UNIQUE_PTR
     #define CPP0X_HAS_NUMERIC_IOTA
@@ -191,8 +194,8 @@
 
 #if ! defined CPP0X_HAS_STATIC_ASSERT \
  || ! defined CPP0X_HAS_ALGORITHM_MIN_MAX \
- || ! defined CPP0X_HAS_ARRAY \
- || ! defined CPP0X_HAS_DECLVAL \
+ || ! defined CPP0X_HAS_ARRAY_HDR \
+ || ! defined CPP0X_HAS_UTILITY_DECLVAL \
  || ! defined CPP0X_HAS_FUNCTIONAL_BIND \
  || ! defined CPP0X_HAS_FUNCTIONAL_FUNCTION \
  || ! defined CPP0X_HAS_FUNCTIONAL_HASH \
@@ -201,10 +204,10 @@
  || ! defined CPP0X_HAS_MEMORY_SHARED_PTR \
  || ! defined CPP0X_HAS_MEMORY_UNIQUE_PTR \
  || ! defined CPP0X_HAS_NUMERIC_IOTA \
- || ! defined CPP0X_HAS_REGEX \
- || ! defined CPP0X_HAS_SYSTEM_ERROR \
- || ! defined CPP0X_HAS_TUPLE \
- || ! defined CPP0X_HAS_TYPE_TRAITS \
+ || ! defined CPP0X_HAS_REGEX_HDR \
+ || ! defined CPP0X_HAS_SYSTEM_ERROR_HDR \
+ || ! defined CPP0X_HAS_TUPLE_HDR \
+ || ! defined CPP0X_HAS_TYPE_TRAITS_HDR \
 
   #include <boost/version.hpp>
   #if BOOST_VERSION < 104200
