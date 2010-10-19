@@ -7,6 +7,7 @@
 
 add_executable( algorithm_test    algorithm_test.cc )
 add_executable( array_test        array_test.cc )
+add_executable( config_test       config_test.cc )
 add_executable( functional_test   functional_test.cc )
 add_executable( memory_test       memory_test.cc )
 add_executable( numeric_test      numeric_test.cc )
@@ -20,6 +21,7 @@ add_executable( type_traits_test  type_traits_test.cc )
 
 add_test( algorithm_test    ${EXECUTABLE_OUTPUT_PATH}/algorithm_test )
 add_test( array_test        ${EXECUTABLE_OUTPUT_PATH}/array_test )
+add_test( config_test       ${EXECUTABLE_OUTPUT_PATH}/config_test )
 add_test( functional_test   ${EXECUTABLE_OUTPUT_PATH}/functional_test )
 add_test( memory_test       ${EXECUTABLE_OUTPUT_PATH}/memory_test )
 add_test( numeric_test      ${EXECUTABLE_OUTPUT_PATH}/numeric_test )
