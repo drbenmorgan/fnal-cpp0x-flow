@@ -17,12 +17,24 @@ cmake_minimum_required(VERSION 2.6)  # use cmake 2.6 or later
 # ----------------------------------------------------------------------
 # Describe product:
 
-project(cpp0x)
-set(version v0_0_0)
+project( cpp0x )
+set( version v0_0_0 )
+set( qualifier a1 )
 
-set(qualifier a1)
-set(flavorqual sl5.x86_64.${qualifier})
-set(flavorqual_dir ${version}/${flavorqual} )
+if( ${CMAKE_SYSTEM_NAME} MATCHES "Linux" )
+  if( ${CMAKE_HOST_SYSTEM_VERSION} MATCHES "^2.6.9.*" )  # sl4 is 2.6.9
+    set( SLTYPE sl4 )
+  endif ()
+  if( ${CMAKE_HOST_SYSTEM_VERSION} MATCHES "^2.6.18.*" ) # sl5 is 2.6.18
+    set( SLTYPE sl5 )
+  endif ()
+  message( STATUS "Building on Linux ${SLTYPE} ${CMAKE_SYSTEM_PROCESSOR}" )
+  if ( NOT SLTYPE )
+    message( FATAL_ERROR "Can't determine system type" )
+  endif ()
+endif ()
+set( flavorqual ${SLTYPE}.${CMAKE_SYSTEM_PROCESSOR}.${qualifier} )
+set( flavorqual_dir ${PROJECT_NAME}/${version}/${flavorqual} )
 
 set(CMAKE_SKIP_RPATH) # don't embed path in shared lib's or executables
 
