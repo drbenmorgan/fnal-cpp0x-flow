@@ -22,4 +22,4 @@ set( HEADERS
   utility
 )
 
-install( FILES ${HEADERS} DESTINATION ${version}/include/cpp0x )
+install( FILES ${HEADERS} DESTINATION ${product}/${version}/include/cpp0x )

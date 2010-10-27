@@ -2,10 +2,14 @@
 #  cpp0x main build file
 #
 #  cd .../path/to/build/directory
+#  source .../path/to/cpp0x/ups/setup_for_development
+#  cmake [-DCMAKE_INSTALL_PREFIX=/install/path] $CPP0X_SOURCE 
+# OR
 #  cmake [-DCMAKE_INSTALL_PREFIX=/install/path] .../path/to/cpp0x
 #  make
 #  make test
 #  make install
+#  make package (builds distribution tarfile)
 # ======================================================================
 
 
@@ -18,27 +22,33 @@ cmake_minimum_required(VERSION 2.6)  # use cmake 2.6 or later
 # Describe product:
 
 project( cpp0x )
-set( version v0_0_0 )
+set( product cpp0x )
+set( version v0_0_1 )
 set( qualifier a1 )
 
-if( ${CMAKE_SYSTEM_NAME} MATCHES "Linux" )
-  if( ${CMAKE_HOST_SYSTEM_VERSION} MATCHES "^2.6.9.*" )  # sl4 is 2.6.9
-    set( SLTYPE sl4 )
-  endif ()
-  if( ${CMAKE_HOST_SYSTEM_VERSION} MATCHES "^2.6.18.*" ) # sl5 is 2.6.18
-    set( SLTYPE sl5 )
-  endif ()
-  message( STATUS "Building on Linux ${SLTYPE} ${CMAKE_SYSTEM_PROCESSOR}" )
-  if ( NOT SLTYPE )
-    message( FATAL_ERROR "Can't determine system type" )
-  endif ()
-endif ()
-set( flavorqual ${SLTYPE}.${CMAKE_SYSTEM_PROCESSOR}.${qualifier} )
-set( flavorqual_dir ${PROJECT_NAME}/${version}/${flavorqual} )
+# cetbuildtools contains our cmake modules
+SET ( CETBUILDTOOLS_VERSION $ENV{CETBUILDTOOLS_VERSION} )
+IF (NOT CETBUILDTOOLS_VERSION)
+    MESSAGE (FATAL_ERROR "ERROR: setup cetbuildtools to get the cmake modules")
+ENDIF()
+set(CMAKE_MODULE_PATH "${CMAKE_ROOT}/Modules")
+set(CMAKE_MODULE_PATH $ENV{CETBUILDTOOLS_DIR}/Modules ${CMAKE_MODULE_PATH})
+message(STATUS "module path is ${CMAKE_MODULE_PATH}" )
 
 set(CMAKE_SKIP_RPATH) # don't embed path in shared lib's or executables
 
 enable_testing()
+
+# define some necessary modules
+include(FindUpsPackage)
+include(FindUpsBoost)
+include(SetFlavorQual)
+include(ParseUpsVersion)
+
+#set package version from ups version
+set_version_from_ups( ${version} )
+#define flavorqual and flavorqual_dir
+set_flavor_qual()
 
 # ----------------------------------------------------------------------
 # Describe build prerequisites:
@@ -51,20 +61,7 @@ if( NOT GCC_VERSION )
 endif()
 message( STATUS "Using gcc ${GCC_VERSION}" )
 
-set( BOOST_VERS $ENV{BOOST_VERSION} )  # boost
-if( NOT BOOST_VERS )
-  message( FATAL_ERROR
-           "Can't locate BOOST_VERSION, required to test ${PROJECT_NAME}"
-         )
-endif()
-set( BOOST_STRING $ENV{SETUP_BOOST} )
-string( REGEX REPLACE ".*(-q.*)" "\\1" BOOST_QUAL "${BOOST_STRING}" )
-set( BOOST_ROOT $ENV{BOOST_DIR} )
-set( BOOST_INCLUDEDIR $ENV{BOOST_INC} )
-set( BOOST_LIBRARYDIR $ENV{BOOST_LIB} )
-set( Boost_USE_MULTITHREADED ON )
-find_package( Boost 1.42 )  # minimum version required
-message( STATUS "Using boost ${BOOST_VERS} ${BOOST_QUAL}" )
+find_ups_boost( v1_42_0 )
 
 # ----------------------------------------------------------------------
 # Describe include path:
@@ -84,6 +81,10 @@ add_subdirectory( ups )              # ups files
 
 set( LIBRARY_OUTPUT_PATH    ${PROJECT_BINARY_DIR}/lib )
 set( EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin )
+
+# ----------------------------------------------------------------------
+# packaging utility
+include(UseCPack)
 
 #
 # ======================================================================

@@ -23,6 +23,6 @@ install( FILES ${CMAKE_CURRENT_BINARY_DIR}/cpp0x-config.cmake
          DESTINATION ${flavorqual_dir}/lib/cpp0x-${version} )
 
 install( FILES ${CMAKE_CURRENT_BINARY_DIR}/cpp0x.table
-         DESTINATION ${version}/ups)
+         DESTINATION ${product}/${version}/ups)
 install( FILES ${CMAKE_CURRENT_BINARY_DIR}/${version}.version
-         DESTINATION ${CMAKE_INSTALL_PREFIX} )
+         DESTINATION ${product} )
