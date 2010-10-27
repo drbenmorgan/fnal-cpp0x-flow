@@ -67,7 +67,6 @@ find_ups_boost( v1_42_0 )
 # Describe include path:
 
 include_directories( "${PROJECT_SOURCE_DIR}" )  # project's headers
-include_directories( $ENV{BOOST_INC} )          # boost's headers
 
 # ----------------------------------------------------------------------
 # Describe source tree layout:
