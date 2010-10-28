@@ -11,7 +11,9 @@
 #include "cpp0x/numeric"
 #include "cpp0x/regex"
 #include "cpp0x/system_error"
+#include "cpp0x/tuple"
 #include "cpp0x/type_traits"
+#include "cpp0x/utility"
 
 
 // array
