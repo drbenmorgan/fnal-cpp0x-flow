@@ -1,35 +1,50 @@
 # ======================================================================
-# testing infrastructure
+#
+# Testing script
+#
 # ======================================================================
 
 # ----------------------------------------------------------------------
-# identify executables' respective sources
+# Identify tests:
 
-add_executable( algorithm_test    algorithm_test.cc    )
-add_executable( array_test        array_test.cc        )
-add_executable( config_test       config_test.cc       )
-add_executable( functional_test   functional_test.cc   )
-add_executable( integration_test  integration_test.cc  )
-add_executable( memory_test       memory_test.cc       )
-add_executable( numeric_test      numeric_test.cc      )
-add_executable( regex_test        regex_test.cc        )
-add_executable( system_error_test system_error_test.cc )
-add_executable( tuple_test        tuple_test.cc        )
-add_executable( type_traits_test  type_traits_test.cc  )
-add_executable( utility_test      utility_test.cc      )
+set( TEST_LIST
+  config_test
+  algorithm_test
+  array_test
+  cstdint_test
+  functional_test
+  integration_test
+  memory_test
+  numeric_test
+  regex_test
+  system_error_test
+  tuple_test
+  type_traits_test
+  utility_test
+)
+
+set( ALSO_BUILD
+)
+
+set( ALSO_RUN
+)
 
 # ----------------------------------------------------------------------
-# identify executables to be run as tests
+# Build most tests:
 
-add_test( algorithm_test    ${EXECUTABLE_OUTPUT_PATH}/algorithm_test    )
-add_test( array_test        ${EXECUTABLE_OUTPUT_PATH}/array_test        )
-add_test( config_test       ${EXECUTABLE_OUTPUT_PATH}/config_test       )
-add_test( functional_test   ${EXECUTABLE_OUTPUT_PATH}/functional_test   )
-add_test( integration_test  ${EXECUTABLE_OUTPUT_PATH}/integration_test  )
-add_test( memory_test       ${EXECUTABLE_OUTPUT_PATH}/memory_test       )
-add_test( numeric_test      ${EXECUTABLE_OUTPUT_PATH}/numeric_test      )
-add_test( regex_test        ${EXECUTABLE_OUTPUT_PATH}/regex_test        )
-add_test( system_error_test ${EXECUTABLE_OUTPUT_PATH}/system_error_test )
-add_test( tuple_test        ${EXECUTABLE_OUTPUT_PATH}/tuple_test        )
-add_test( type_traits_test  ${EXECUTABLE_OUTPUT_PATH}/type_traits_test  )
-add_test( utility_test      ${EXECUTABLE_OUTPUT_PATH}/utility_test      )
+foreach( test ${TEST_LIST} ${ALSO_BUILD} )
+  add_executable( ${test} ${test}.cc )
+  #target_link_libraries( ${test} cpp0x )
+endforeach( test ${TEST_LIST} ${ALSO_BUILD} )
+
+# ----------------------------------------------------------------------
+# Build tests with special requirements:
+
+# ----------------------------------------------------------------------
+# Run tests:
+
+foreach( test ${TEST_LIST} ${ALSO_RUN} )
+  add_test( ${test} ${EXECUTABLE_OUTPUT_PATH}/${test} )
+endforeach( test ${TEST_LIST} )
+
+# ======================================================================

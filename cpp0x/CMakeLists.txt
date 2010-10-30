@@ -12,6 +12,7 @@ set( HEADERS
   _unique_ptr_
   algorithm
   array
+  cstdint
   functional
   memory
   numeric

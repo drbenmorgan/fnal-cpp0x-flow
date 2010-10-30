@@ -61,6 +61,7 @@
 // --- Initially assume _no_ C++0X library features are implemented:
 #undef CPP0X_HAS_ALGORITHM_MIN_MAX
 #undef CPP0X_HAS_ARRAY_HDR
+#undef CPP0X_HAS_CSTDINT_HDR
 #undef CPP0X_HAS_FUNCTIONAL_BIND
 #undef CPP0X_HAS_FUNCTIONAL_FUNCTION
 #undef CPP0X_HAS_FUNCTIONAL_HASH
@@ -78,6 +79,10 @@
 
 // --- Specify, by version, which features are newly-implemented
 #if defined __GXX_EXPERIMENTAL_CXX0X__
+
+  #if GCC_IS_AT_LEAST(4,1,0)
+    #define CPP0X_HAS_CSTDINT_HDR
+  #endif
 
   #if GCC_IS_AT_LEAST(4,3,0)
     #define CPP0X_HAS_DECLTYPE
@@ -195,6 +200,7 @@
 #if ! defined CPP0X_HAS_STATIC_ASSERT \
  || ! defined CPP0X_HAS_ALGORITHM_MIN_MAX \
  || ! defined CPP0X_HAS_ARRAY_HDR \
+ || ! defined CPP0X_HAS_CSTDINT_HDR \
  || ! defined CPP0X_HAS_FUNCTIONAL_BIND \
  || ! defined CPP0X_HAS_FUNCTIONAL_FUNCTION \
  || ! defined CPP0X_HAS_FUNCTIONAL_HASH \
