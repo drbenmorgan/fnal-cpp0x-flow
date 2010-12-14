@@ -13,9 +13,7 @@
 //
 // ======================================================================
 
-
-#include "cpp0x/_config_"
-
+#include "cpp0x/detail/config"
 
 // ----------------------------------------------------------------------
 // <type_traits>
@@ -28,7 +26,7 @@
   #include "boost/type_traits.hpp"
   #include "boost/utility/enable_if.hpp"
   #include "boost/utility/result_of.hpp"
-  #include "cpp0x/_add_rv_ref_"
+  #include "cpp0x/detail/add_rv_ref"
   namespace std {
     // helper class
     using ::boost::integral_constant;
@@ -169,8 +167,6 @@
 
 #endif  // CPP0X_HAS_TYPE_TRAITS_HDR
 
-
 // ======================================================================
-
 
 #endif  // CPP0X__TYPE_TRAITS

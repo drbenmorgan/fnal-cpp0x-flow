@@ -13,8 +13,7 @@
 //
 // ======================================================================
 
-
-#include "cpp0x/_config_"
+#include "cpp0x/detail/config"
 
 #include <memory>
 
@@ -42,14 +41,13 @@
 
 #endif  // CPP0X_HAS_MEMORY_SHARED_PTR
 
-
 // ----------------------------------------------------------------------
 // std::unique_ptr, etc.
 
 #if defined(CPP0X_HAS_MEMORY_UNIQUE_PTR)
 
 #else
-  #include "cpp0x/_unique_ptr_"
+  #include "cpp0x/detail/unique_ptr"
   namespace std {
     using ::boost::default_delete;
     using ::boost::unique_ptr;
@@ -57,8 +55,6 @@
 
 #endif  // CPP0X_HAS_MEMORY_UNIQUE_PTR
 
-
 // ======================================================================
-
 
 #endif  // CPP0X__MEMORY

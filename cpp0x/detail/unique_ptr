@@ -1,5 +1,5 @@
-#ifndef CPP0X___UNIQUE_PTR_
-#define CPP0X___UNIQUE_PTR_
+#ifndef CPP0X__DETAIL_UNIQUE_PTR
+#define CPP0X__DETAIL_UNIQUE_PTR
 
 // ======================================================================
 //
@@ -21,13 +21,10 @@
 //
 // ======================================================================
 
-
-// boost support:
 #include <boost/mpl/if.hpp>
 #include <boost/static_assert.hpp>
 #include <boost/type_traits.hpp>
 #include <boost/utility/enable_if.hpp>
-
 
 namespace boost
 {
@@ -585,4 +582,6 @@ operator>=(const unique_ptr<T1, D1>& x, const unique_ptr<T2, D2>& y)
 
 }  // boost
 
-#endif  // CPP0X___UNIQUE_PTR_
+// ======================================================================
+
+#endif  // CPP0X__DETAIL_UNIQUE_PTR

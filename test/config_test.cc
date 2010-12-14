@@ -5,7 +5,7 @@
 // ======================================================================
 
 
-#include "cpp0x/_config_"
+#include "cpp0x/detail/config"
 #include <cstdlib>
 
 

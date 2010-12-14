@@ -13,10 +13,9 @@
 //
 // ======================================================================
 
+#include "cpp0x/detail/config"
 
-#include "cpp0x/_config_"
 #include <utility>
-
 
 // ----------------------------------------------------------------------
 // CPP0X_HAS_UTILITY_DECLVAL
@@ -24,15 +23,13 @@
 #if defined CPP0X_HAS_UTILITY_DECLVAL
 
 #else
-  #include "cpp0x/_declval_"
+  #include "cpp0x/detail/declval"
   namespace std {
     using ::boost::declval;
   }
 
 #endif  // CPP0X_HAS_UTILITY_DECLVAL
 
-
 // ======================================================================
-
 
 #endif  // CPP0X__UTILITY

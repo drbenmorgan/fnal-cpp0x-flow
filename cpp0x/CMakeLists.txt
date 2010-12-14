@@ -3,13 +3,9 @@
 # ======================================================================
 
 # ----------------------------------------------------------------------
-# identify headers to install, and where they are to be installed
+# identify headers to install
 
-set( HEADERS
-  _add_rv_ref_
-  _config_
-  _declval_
-  _unique_ptr_
+set( PUBLIC_HDRS
   algorithm
   array
   cstdint
@@ -23,4 +19,19 @@ set( HEADERS
   utility
 )
 
-install( FILES ${HEADERS} DESTINATION ${product}/${version}/include/cpp0x )
+set( DETAIL_HDRS
+  detail/add_rv_ref
+  detail/config
+  detail/declval
+  detail/unique_ptr
+)
+
+# ----------------------------------------------------------------------
+# identify headers' installed locations
+
+install( FILES ${PUBLIC_HDRS}
+         DESTINATION ${product}/${version}/include/cpp0x
+)
+install( FILES ${DETAIL_HDRS}
+         DESTINATION ${product}/${version}/include/cpp0x/detail
+)

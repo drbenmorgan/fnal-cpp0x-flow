@@ -13,12 +13,10 @@
 //
 // ======================================================================
 
-
-#include "cpp0x/_config_"
+#include "cpp0x/detail/config"
 
 #include <algorithm>
 #include <utility>    // pair
-
 
 // ----------------------------------------------------------------------
 // CPP0X_HAS_ALGORITHM_MIN_MAX
@@ -153,8 +151,6 @@
 
 #endif  // CPP0X_HAS_ALGORITHM_MIN_MAX
 
-
 // ======================================================================
-
 
 #endif  // CPP0X__ALGORITHM
