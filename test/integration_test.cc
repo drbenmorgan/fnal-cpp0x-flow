@@ -6,6 +6,7 @@
 
 #include "cpp0x/algorithm"
 #include "cpp0x/array"
+#include "cpp0x/cstdint"
 #include "cpp0x/functional"
 #include "cpp0x/memory"
 #include "cpp0x/numeric"
