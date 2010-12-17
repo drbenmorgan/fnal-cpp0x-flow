@@ -26,7 +26,9 @@
   #include "boost/type_traits.hpp"
   #include "boost/utility/enable_if.hpp"
   #include "boost/utility/result_of.hpp"
-  #include "cpp0x/detail/add_rv_ref"
+  #if BOOST_VERSION < 104500
+    #include "cpp0x/detail/add_rv_ref"
+  #endif  // BOOST_VERSION
   namespace std {
     // helper class
     using ::boost::integral_constant;
