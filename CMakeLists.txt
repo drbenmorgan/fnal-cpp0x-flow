@@ -3,7 +3,7 @@
 #
 #  cd .../path/to/build/directory
 #  source .../path/to/cpp0x/ups/setup_for_development
-#  cmake [-DCMAKE_INSTALL_PREFIX=/install/path] $CPP0X_SOURCE 
+#  cmake [-DCMAKE_INSTALL_PREFIX=/install/path] $CPP0X_SOURCE
 # OR
 #  cmake [-DCMAKE_INSTALL_PREFIX=/install/path] .../path/to/cpp0x
 #  make
@@ -23,7 +23,7 @@ cmake_minimum_required(VERSION 2.6)  # use cmake 2.6 or later
 
 project( cpp0x )
 set( product cpp0x )
-set( version v1_0_1 )
+set( version v1_0_2 )
 set( qualifier a1 )
 
 # cetbuildtools contains our cmake modules
