@@ -1,5 +1,5 @@
-#ifndef CPP0X__NUMERIC
-#define CPP0X__NUMERIC
+#ifndef CPP0X_NUMERIC
+#define CPP0X_NUMERIC
 
 // ======================================================================
 //
@@ -35,8 +35,8 @@
 
   }  // namespace std
 
-#endif  // CPP0X_HAS_NUMERIC_IOTA
+#endif
 
 // ======================================================================
 
-#endif  // CPP0X__NUMERIC
+#endif

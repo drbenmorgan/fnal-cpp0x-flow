@@ -1,5 +1,5 @@
-#ifndef CPP0X__UTILITY
-#define CPP0X__UTILITY
+#ifndef CPP0X_UTILITY
+#define CPP0X_UTILITY
 
 // ======================================================================
 //
@@ -22,14 +22,20 @@
 
 #if defined CPP0X_HAS_UTILITY_DECLVAL
 
-#else
+#elif BOOST_VERSION < 104500
   #include "cpp0x/detail/declval"
   namespace std {
     using ::boost::declval;
   }
 
-#endif  // CPP0X_HAS_UTILITY_DECLVAL
+#elif BOOST_VERSION < 104500
+  #include "boost/utility/declval.hpp"
+  namespace std {
+    using ::boost::declval;
+  }
+
+#endif
 
 // ======================================================================
 
-#endif  // CPP0X__UTILITY
+#endif

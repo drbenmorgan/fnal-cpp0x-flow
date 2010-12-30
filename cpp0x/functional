@@ -1,5 +1,5 @@
-#ifndef CPP0X__FUNCTIONAL
-#define CPP0X__FUNCTIONAL
+#ifndef CPP0X_FUNCTIONAL
+#define CPP0X_FUNCTIONAL
 
 // ======================================================================
 //
@@ -41,7 +41,7 @@
     }
   }
 
-#endif  // CPP0X_HAS_FUNCTIONAL_BIND
+#endif
 
 // ----------------------------------------------------------------------
 // std::function, etc.
@@ -55,7 +55,7 @@
     using ::boost::function;
   }
 
-#endif  // CPP0X_HAS_FUNCTIONAL_FUNCTION
+#endif
 
 // ----------------------------------------------------------------------
 // std::hash, etc.
@@ -68,7 +68,7 @@
     using ::boost::hash;
   }
 
-#endif  // CPP0X_HAS_FUNCTIONAL_HASH
+#endif
 
 // ----------------------------------------------------------------------
 // std::mem_fn, etc.
@@ -81,7 +81,7 @@
     using ::boost::mem_fn;
   }
 
-#endif  // CPP0X_HAS_FUNCTIONAL_MEM_FN
+#endif
 
 // ----------------------------------------------------------------------
 // std::reference_wrapper, etc.
@@ -96,8 +96,8 @@
     using ::boost::cref;
   }
 
-#endif  // CPP0X_HAS_FUNCTIONAL_FUNCTION
+#endif
 
 // ======================================================================
 
-#endif  // CPP0X__FUNCTIONAL
+#endif

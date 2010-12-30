@@ -5,8 +5,8 @@
 //  Distributed under the Boost Software License, Version 1.0.
 //  See http://www.boost.org/LICENSE_1_0.txt
 
-#ifndef BOOST_TYPE_TRAITS_EXT_ADD_RVALUE_REFERENCE__HPP
-#define BOOST_TYPE_TRAITS_EXT_ADD_RVALUE_REFERENCE__HPP
+#ifndef BOOST_TYPE_TRAITS_EXT_ADD_RVALUE_REFERENCE_HPP
+#define BOOST_TYPE_TRAITS_EXT_ADD_RVALUE_REFERENCE_HPP
 
 #include <boost/config.hpp>
 
@@ -64,4 +64,4 @@ BOOST_TT_AUX_TYPE_TRAIT_DEF1(add_rvalue_reference,T,typename boost::type_traits_
 
 #include <boost/type_traits/detail/type_trait_undef.hpp>
 
-#endif  // BOOST_TYPE_TRAITS_EXT_ADD_RVALUE_REFERENCE__HPP
+#endif

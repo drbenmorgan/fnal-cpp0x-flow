@@ -5,8 +5,8 @@
 //  Distributed under the Boost Software License, Version 1.0.
 //  See http://www.boost.org/LICENSE_1_0.txt
 
-#ifndef BOOST_TYPE_TRAITS_EXT_DECLVAL__HPP
-#define BOOST_TYPE_TRAITS_EXT_DECLVAL__HPP
+#ifndef BOOST_TYPE_TRAITS_EXT_DECLVAL_HPP
+#define BOOST_TYPE_TRAITS_EXT_DECLVAL_HPP
 
 #include <boost/config.hpp>
 
@@ -42,4 +42,4 @@ namespace boost {
 
 }  // namespace boost
 
-#endif  // BOOST_TYPE_TRAITS_EXT_DECLVAL__HPP
+#endif

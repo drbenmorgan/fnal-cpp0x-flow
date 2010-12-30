@@ -1,5 +1,5 @@
-#ifndef CPP0X__ARRAY
-#define CPP0X__ARRAY
+#ifndef CPP0X_ARRAY
+#define CPP0X_ARRAY
 
 // ======================================================================
 //
@@ -27,8 +27,8 @@
     using ::boost::array;
   }
 
-#endif  // CPP0X_HAS_ARRAY_HDR
+#endif
 
 // ======================================================================
 
-#endif  // CPP0X__ARRAY
+#endif

@@ -1,5 +1,5 @@
-#ifndef CPP0X__ALGORITHM
-#define CPP0X__ALGORITHM
+#ifndef CPP0X_ALGORITHM
+#define CPP0X_ALGORITHM
 
 // ======================================================================
 //
@@ -16,7 +16,7 @@
 #include "cpp0x/detail/config"
 
 #include <algorithm>
-#include <utility>    // pair
+#include <utility>
 
 // ----------------------------------------------------------------------
 // CPP0X_HAS_ALGORITHM_MIN_MAX
@@ -82,7 +82,7 @@
           result = b;
       return result;
     }
-    #endif // 0
+    #endif
 
     namespace {
       template< class FwdIter >
@@ -149,8 +149,8 @@
 
   }  // namespace std
 
-#endif  // CPP0X_HAS_ALGORITHM_MIN_MAX
+#endif
 
 // ======================================================================
 
-#endif  // CPP0X__ALGORITHM
+#endif

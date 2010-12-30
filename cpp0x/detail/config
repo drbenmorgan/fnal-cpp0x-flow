@@ -1,5 +1,5 @@
-#ifndef CPP0X__DETAIL_CONFIG
-#define CPP0X__DETAIL_CONFIG
+#ifndef CPP0X_DETAIL_CONFIG
+#define CPP0X_DETAIL_CONFIG
 
 // ======================================================================
 //
@@ -13,11 +13,9 @@
 //
 // ======================================================================
 
-
 // ----------------------------------------------------------------------
 // Define gcc version test:
 // ----------------------------------------------------------------------
-
 
 #if defined __GNUC_PATCHLEVEL__
   # define GCC_VERSION 10000 * __GNUC__ \
@@ -34,7 +32,7 @@
 #else
   # define GCC_VERSION 0
 
-#endif  // __GNUC__ ...
+#endif
 
 # define GCC_IS_AT_LEAST(major, minor, patch) \
   (GCC_VERSION) >= ((10000*major) + (1000*minor) + patch)
@@ -42,7 +40,6 @@
 // ----------------------------------------------------------------------
 // Feature identification:
 // ----------------------------------------------------------------------
-
 
 // --- Initially assume _no_ C++0X core features are implemented:
 #undef CPP0X_HAS_AUTO
@@ -122,13 +119,12 @@
     #define CPP0X_HAS_NULLPTR_T
   #endif
 
-#endif  // __GXX_EXPERIMENTAL_CXX0X__
+#endif
 
 
 // ----------------------------------------------------------------------
 // Core feature workarounds:
 // ----------------------------------------------------------------------
-
 
 // --- CPP0X_HAS_CONSTEXPR_FUNCTIONS
 #if defined CPP0X_HAS_CONSTEXPR_FUNCTIONS
@@ -137,8 +133,7 @@
 #else
   #define CONSTEXPR_FCTN
 
-#endif  // CPP0X_HAS_CONSTEXPR_FUNCTIONS
-
+#endif
 
 // --- CPP0X_HAS_CONSTEXPR_VARIABLES
 #if defined CPP0X_HAS_CONSTEXPR_VARIABLES
@@ -147,8 +142,7 @@
 #else
   #define CONSTEXPR_VAR const
 
-#endif  // CPP0X_HAS_CONSTEXPR_VARIABLES
-
+#endif
 
 // --- CPP0X_HAS_EXPLICIT_CONVERSION_OPERATORS
 #if defined CPP0X_HAS_EXPLICIT_CONVERSION_OPERATORS
@@ -157,8 +151,7 @@
 #else
   #define EXPLICIT_CONV_OP
 
-#endif  // CPP0X_HAS_EXPLICIT_CONVERSION_OPERATORS
-
+#endif
 
 // --- CPP0X_HAS_NOEXCEPT
 #if defined CPP0X_HAS_NOEXCEPT
@@ -166,8 +159,7 @@
 #elif ! defined noexcept
   #define noexcept throw()
 
-#endif  // CPP0X_HAS_NOEXCEPT
-
+#endif
 
 // --- CPP0X_HAS_NULLPTR_T
 #if defined CPP0X_HAS_NULLPTR_T
@@ -179,8 +171,7 @@
   }
   #define nullptr 0
 
-#endif  // CPP0X_HAS_NULLPTR_T
-
+#endif
 
 // --- CPP0X_HAS_STATIC_ASSERT
 #if defined CPP0X_HAS_STATIC_ASSERT
@@ -190,8 +181,7 @@
   #include <boost/static_assert.hpp>
   #define STATIC_ASSERT(pred,mesg) BOOST_STATIC_ASSERT(pred)
 
-#endif  // CPP0X_HAS_STATIC_ASSERT
-
+#endif
 
 // ----------------------------------------------------------------------
 // If library-based workarounds are needed, ensure they are possible:
@@ -218,12 +208,10 @@
   #include <boost/version.hpp>
   #if BOOST_VERSION < 104200
     #error "boost library version is too old; can't provide library workarounds"
-  #endif  // BOOST_VERSION
+  #endif
 
 #endif
 
-
 // ======================================================================
 
-
-#endif  // CPP0X__DETAIL_CONFIG
+#endif

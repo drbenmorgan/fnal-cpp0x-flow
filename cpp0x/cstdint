@@ -1,5 +1,5 @@
-#ifndef CPP0X__CSTDINT
-#define CPP0X__CSTDINT
+#ifndef CPP0X_CSTDINT
+#define CPP0X_CSTDINT
 
 // ======================================================================
 //
@@ -42,8 +42,8 @@
     using ::boost::intmax_t;            using ::boost::uintmax_t;
   }
 
-#endif  // CPP0X_HAS_CSTDINT_HDR
+#endif
 
 // ======================================================================
 
-#endif  // CPP0X__CSTDINT
+#endif

@@ -1,5 +1,5 @@
-#ifndef CPP0X__TYPE_TRAITS
-#define CPP0X__TYPE_TRAITS
+#ifndef CPP0X_TYPE_TRAITS
+#define CPP0X_TYPE_TRAITS
 
 // ======================================================================
 //
@@ -28,7 +28,7 @@
   #include "boost/utility/result_of.hpp"
   #if BOOST_VERSION < 104500
     #include "cpp0x/detail/add_rv_ref"
-  #endif  // BOOST_VERSION
+  #endif
   namespace std {
     // helper class
     using ::boost::integral_constant;
@@ -51,8 +51,8 @@
       #if defined(CPP0X_HAS_RVALUE_REFERENCES)
         template<class T>
           struct is_rvalue_reference<T&&> : public true_type { };
-      #endif  // CPP0X_HAS_RVALUE_REFERENCES
-    #endif  // BOOST_VERSION
+      #endif
+    #endif
     using ::boost::is_member_object_pointer;
     using ::boost::is_member_function_pointer;
     using ::boost::is_enum;
@@ -161,14 +161,14 @@
                                      >::type
                  type;
       };
-    #endif  // CPP0X_HAS_VARIADIC_TEMPLATES ...
+    #endif
     //underlying_type
     template< class T >
       struct result_of : public ::boost::result_of<T> { };
   }
 
-#endif  // CPP0X_HAS_TYPE_TRAITS_HDR
+#endif
 
 // ======================================================================
 
-#endif  // CPP0X__TYPE_TRAITS
+#endif

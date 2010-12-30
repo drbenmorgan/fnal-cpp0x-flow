@@ -1,5 +1,5 @@
-#ifndef CPP0X__REGEX
-#define CPP0X__REGEX
+#ifndef CPP0X_REGEX
+#define CPP0X_REGEX
 
 // ======================================================================
 //
@@ -65,8 +65,8 @@
     using ::boost::wsregex_token_iterator;
   }
 
-#endif  // CPP0X_HAS_REGEX_HDR
+#endif
 
 // ======================================================================
 
-#endif  // CPP0X__REGEX
+#endif

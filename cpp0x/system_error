@@ -1,5 +1,5 @@
-#ifndef CPP0X__SYSTEM_ERROR
-#define CPP0X__SYSTEM_ERROR
+#ifndef CPP0X_SYSTEM_ERROR
+#define CPP0X_SYSTEM_ERROR
 
 // ======================================================================
 //
@@ -38,8 +38,8 @@
     using ::boost::system::system_error;
   }
 
-#endif  // CPP0X_HAS_SYSTEM_ERROR_HDR
+#endif
 
 // ======================================================================
 
-#endif  // CPP0X__SYSTEM_ERROR
+#endif

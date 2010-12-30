@@ -1,5 +1,5 @@
-#ifndef CPP0X__MEMORY
-#define CPP0X__MEMORY
+#ifndef CPP0X_MEMORY
+#define CPP0X_MEMORY
 
 // ======================================================================
 //
@@ -39,7 +39,7 @@
     using ::boost::weak_ptr;
   }
 
-#endif  // CPP0X_HAS_MEMORY_SHARED_PTR
+#endif
 
 // ----------------------------------------------------------------------
 // std::unique_ptr, etc.
@@ -53,8 +53,8 @@
     using ::boost::unique_ptr;
   }
 
-#endif  // CPP0X_HAS_MEMORY_UNIQUE_PTR
+#endif
 
 // ======================================================================
 
-#endif  // CPP0X__MEMORY
+#endif

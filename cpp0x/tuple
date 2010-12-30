@@ -1,5 +1,5 @@
-#ifndef CPP0X__TUPLE
-#define CPP0X__TUPLE
+#ifndef CPP0X_TUPLE
+#define CPP0X_TUPLE
 
 // ======================================================================
 //
@@ -36,8 +36,8 @@
     using ::boost::fusion::tuple_element;
   }
 
-#endif  // CPP0X_HAS_TUPLE_HDR
+#endif
 
 // ======================================================================
 
-#endif  // CPP0X__TUPLE
+#endif
