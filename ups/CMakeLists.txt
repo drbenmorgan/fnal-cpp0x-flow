@@ -16,7 +16,7 @@ configure_file( ${CMAKE_CURRENT_SOURCE_DIR}/cpp0x-config-version.cmake.in
 configure_file( ${CMAKE_CURRENT_SOURCE_DIR}/cpp0x.table.in
                 ${CMAKE_CURRENT_BINARY_DIR}/cpp0x.table @ONLY )
 configure_file( ${CMAKE_CURRENT_SOURCE_DIR}/cpp0x.version.in
-                ${CMAKE_CURRENT_BINARY_DIR}/${version}.version @ONLY )
+                ${CMAKE_CURRENT_BINARY_DIR}/${UPSFLAVOR}_${qualifier} @ONLY )
 
 install( FILES ${CMAKE_CURRENT_BINARY_DIR}/cpp0x-config.cmake
                ${CMAKE_CURRENT_BINARY_DIR}/cpp0x-config-version.cmake
@@ -24,5 +24,5 @@ install( FILES ${CMAKE_CURRENT_BINARY_DIR}/cpp0x-config.cmake
 
 install( FILES ${CMAKE_CURRENT_BINARY_DIR}/cpp0x.table
          DESTINATION ${product}/${version}/ups)
-install( FILES ${CMAKE_CURRENT_BINARY_DIR}/${version}.version
-         DESTINATION ${product} )
+install( FILES ${CMAKE_CURRENT_BINARY_DIR}/${UPSFLAVOR}_${qualifier}
+         DESTINATION ${product}/${version}.version )
