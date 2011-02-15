@@ -60,7 +60,7 @@ if( NOT GCC_VERSION )
 endif()
 message( STATUS "Using gcc ${GCC_VERSION}" )
 
-find_ups_product( cetbuildtools v1_7_3 )
+find_ups_product( cetbuildtools v1_7_4 )
 find_ups_boost( v1_42_0 )
 
 # ----------------------------------------------------------------------
