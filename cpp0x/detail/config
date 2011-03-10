@@ -50,7 +50,7 @@
 #undef CPP0X_HAS_FCTN_TEMPLATE_DEFAULT_ARGS
 #undef CPP0X_HAS_LAMBDAS
 #undef CPP0X_HAS_NOEXCEPT
-#undef CPP0X_HAS_NULLPTR_T
+#undef CPP0X_HAS_NULLPTR
 #undef CPP0X_HAS_RVALUE_REFERENCES
 #undef CPP0X_HAS_STATIC_ASSERT
 #undef CPP0X_HAS_VARIADIC_TEMPLATES
@@ -58,6 +58,7 @@
 // --- Initially assume _no_ C++0X library features are implemented:
 #undef CPP0X_HAS_ALGORITHM_MIN_MAX
 #undef CPP0X_HAS_ARRAY_HDR
+#undef CPP0X_HAS_CSTDDEF_NULLPTR_T
 #undef CPP0X_HAS_CSTDINT_HDR
 #undef CPP0X_HAS_FUNCTIONAL_BIND
 #undef CPP0X_HAS_FUNCTIONAL_FUNCTION
@@ -116,7 +117,8 @@
 
   #if GCC_IS_AT_LEAST(4,6,0)
     #define CPP0X_HAS_NOEXCEPT
-    #define CPP0X_HAS_NULLPTR_T
+    #define CPP0X_HAS_NULLPTR
+    #define CPP0X_HAS_CSTDDEF_NULLPTR_T
   #endif
 
 #endif
@@ -161,16 +163,11 @@
 
 #endif
 
-// --- CPP0X_HAS_NULLPTR_T
-#if defined CPP0X_HAS_NULLPTR_T
+// --- CPP0X_HAS_NULLPTR
+#if defined CPP0X_HAS_NULLPTR
 
 #elif ! defined nullptr
-  namespace {
-    struct nat_ { int for_bool; };
-    typedef  int nat_::*  nullptr_t;
-  }
-  #define nullptr 0
-
+  #include "cpp0x/detail/nullptr"
 #endif
 
 // --- CPP0X_HAS_STATIC_ASSERT
@@ -190,6 +187,7 @@
 #if ! defined CPP0X_HAS_STATIC_ASSERT \
  || ! defined CPP0X_HAS_ALGORITHM_MIN_MAX \
  || ! defined CPP0X_HAS_ARRAY_HDR \
+ || ! defined CPP0X_HAS_CSTDDEF_NULLPTR_T \
  || ! defined CPP0X_HAS_CSTDINT_HDR \
  || ! defined CPP0X_HAS_FUNCTIONAL_BIND \
  || ! defined CPP0X_HAS_FUNCTIONAL_FUNCTION \

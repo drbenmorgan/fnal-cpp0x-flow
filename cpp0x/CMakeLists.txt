@@ -8,6 +8,7 @@
 set( PUBLIC_HDRS
   algorithm
   array
+  cstddef
   cstdint
   functional
   memory
@@ -23,6 +24,7 @@ set( DETAIL_HDRS
   detail/add_rv_ref
   detail/config
   detail/declval
+  detail/nullptr
   detail/unique_ptr
 )
 
