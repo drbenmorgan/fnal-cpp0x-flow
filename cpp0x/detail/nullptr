@@ -48,56 +48,56 @@ struct std::__nullptr_t
   friend  bool  operator >= ( __nullptr_t, __nullptr_t )  { return true;  }
 
   template< class _Tp >
-    friend  bool  operator == ( __nullptr_t, _Tp * p )  { return p == 0;  }
+    friend  bool  operator == ( __nullptr_t, _Tp * p )  { return 0 == p;  }
   template< class _Tp >
-    friend  bool  operator != ( __nullptr_t, _Tp * p )  { return p == 0;  }
+    friend  bool  operator != ( __nullptr_t, _Tp * p )  { return 0 != p;  }
   template< class _Tp >
-    friend  bool  operator <  ( __nullptr_t, _Tp * p )  { return p == 0;  }
+    friend  bool  operator <  ( __nullptr_t, _Tp * p )  { return 0 <  p;  }
   template< class _Tp >
-    friend  bool  operator <= ( __nullptr_t, _Tp * p )  { return p == 0;  }
+    friend  bool  operator <= ( __nullptr_t, _Tp * p )  { return 0 <= p;  }
   template< class _Tp >
-    friend  bool  operator >  ( __nullptr_t, _Tp * p )  { return p == 0;  }
+    friend  bool  operator >  ( __nullptr_t, _Tp * p )  { return 0 >  p;  }
   template< class _Tp >
-    friend  bool  operator >= ( __nullptr_t, _Tp * p )  { return p == 0;  }
+    friend  bool  operator >= ( __nullptr_t, _Tp * p )  { return 0 >= p;  }
 
   template< class _Tp >
     friend  bool  operator == ( _Tp * p, __nullptr_t )  { return p == 0;  }
   template< class _Tp >
-    friend  bool  operator != ( _Tp * p, __nullptr_t )  { return p == 0;  }
+    friend  bool  operator != ( _Tp * p, __nullptr_t )  { return p != 0;  }
   template< class _Tp >
-    friend  bool  operator <  ( _Tp * p, __nullptr_t )  { return p == 0;  }
+    friend  bool  operator <  ( _Tp * p, __nullptr_t )  { return p <  0;  }
   template< class _Tp >
-    friend  bool  operator <= ( _Tp * p, __nullptr_t )  { return p == 0;  }
+    friend  bool  operator <= ( _Tp * p, __nullptr_t )  { return p <= 0;  }
   template< class _Tp >
-    friend  bool  operator >  ( _Tp * p, __nullptr_t )  { return p == 0;  }
+    friend  bool  operator >  ( _Tp * p, __nullptr_t )  { return p >  0;  }
   template< class _Tp >
-    friend  bool  operator >= ( _Tp * p, __nullptr_t )  { return p == 0;  }
+    friend  bool  operator >= ( _Tp * p, __nullptr_t )  { return p >= 0;  }
 
   template< class _Tp, class _Up >
-    friend  bool  operator == ( __nullptr_t, _Tp _Up::* p )  { return p == 0;  }
+    friend  bool  operator == ( __nullptr_t, _Tp _Up::* p )  { return 0 == p;  }
   template< class _Tp, class _Up >
-    friend  bool  operator != ( __nullptr_t, _Tp _Up::* p )  { return p == 0;  }
+    friend  bool  operator != ( __nullptr_t, _Tp _Up::* p )  { return 0 != p;  }
   template< class _Tp, class _Up >
-    friend  bool  operator <  ( __nullptr_t, _Tp _Up::* p )  { return p == 0;  }
+    friend  bool  operator <  ( __nullptr_t, _Tp _Up::* p )  { return 0 <  p;  }
   template< class _Tp, class _Up >
-    friend  bool  operator <= ( __nullptr_t, _Tp _Up::* p )  { return p == 0;  }
+    friend  bool  operator <= ( __nullptr_t, _Tp _Up::* p )  { return 0 <= p;  }
   template< class _Tp, class _Up >
-    friend  bool  operator >  ( __nullptr_t, _Tp _Up::* p )  { return p == 0;  }
+    friend  bool  operator >  ( __nullptr_t, _Tp _Up::* p )  { return 0 >  p;  }
   template< class _Tp, class _Up >
-    friend  bool  operator >= ( __nullptr_t, _Tp _Up::* p )  { return p == 0;  }
+    friend  bool  operator >= ( __nullptr_t, _Tp _Up::* p )  { return 0 >= p;  }
 
   template< class _Tp, class _Up >
     friend  bool  operator == ( _Tp _Up::* p, __nullptr_t )  { return p == 0;  }
   template< class _Tp, class _Up >
-    friend  bool  operator != ( _Tp _Up::* p, __nullptr_t )  { return p == 0;  }
+    friend  bool  operator != ( _Tp _Up::* p, __nullptr_t )  { return p != 0;  }
   template< class _Tp, class _Up >
-    friend  bool  operator <  ( _Tp _Up::* p, __nullptr_t )  { return p == 0;  }
+    friend  bool  operator <  ( _Tp _Up::* p, __nullptr_t )  { return p <  0;  }
   template< class _Tp, class _Up >
-    friend  bool  operator <= ( _Tp _Up::* p, __nullptr_t )  { return p == 0;  }
+    friend  bool  operator <= ( _Tp _Up::* p, __nullptr_t )  { return p <= 0;  }
   template< class _Tp, class _Up >
-    friend  bool  operator >  ( _Tp _Up::* p, __nullptr_t )  { return p == 0;  }
+    friend  bool  operator >  ( _Tp _Up::* p, __nullptr_t )  { return p >  0;  }
   template< class _Tp, class _Up >
-    friend  bool  operator >= ( _Tp _Up::* p, __nullptr_t )  { return p == 0;  }
+    friend  bool  operator >= ( _Tp _Up::* p, __nullptr_t )  { return p >= 0;  }
 
 };  // __nullptr_t
 

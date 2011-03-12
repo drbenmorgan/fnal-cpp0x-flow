@@ -53,6 +53,10 @@ int
   { // --- other required properties
     ensure( 21, sizeof(std::nullptr_t) == sizeof(void*) );
     ensure( 22, A(0) == A(nullptr) );
+    char const * s1 = 0;
+    char const * s2 = "abc";
+    ensure( 23, s1 == nullptr );
+    ensure( 24, s2 != nullptr );
   }
 
   return 0;
