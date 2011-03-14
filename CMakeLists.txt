@@ -38,6 +38,10 @@ set( CMAKE_SKIP_RPATH ) # don't embed path in shared lib's or executables
 
 enable_testing()
 
+# make sure someone isn't typing cmake in the source code tree
+include(EnsureOutOfSourceBuild)
+cet_ensure_out_of_source_build()
+
 # define some necessary modules
 include(FindUpsPackage)
 include(FindUpsBoost)
@@ -60,7 +64,7 @@ if( NOT GCC_VERSION )
 endif()
 message( STATUS "Using gcc ${GCC_VERSION}" )
 
-find_ups_product( cetbuildtools v1_7_4 )
+find_ups_product( cetbuildtools v1_08_00 )
 find_ups_boost( v1_42_0 )
 
 # ----------------------------------------------------------------------
