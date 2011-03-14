@@ -1,0 +1,11 @@
+// ======================================================================
+//
+// pre_CLHEP:  prepare to play nicely with C++0x-like CLHEP internals
+//
+// Note: no codeguards so as to allow re-use if needed
+//
+// ======================================================================
+
+#if defined nullptr
+  #undef nullptr
+#endif

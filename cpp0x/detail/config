@@ -166,7 +166,7 @@
 // --- CPP0X_HAS_NULLPTR
 #if defined CPP0X_HAS_NULLPTR
 
-#elif ! defined nullptr
+#else
   #include "cpp0x/detail/nullptr"
 #endif
 

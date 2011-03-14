@@ -21,8 +21,6 @@ namespace std {
   __nullptr_t  __get_nullptr_t( );
 }
 
-#define nullptr ::std::__get_nullptr_t()
-
 // ----------------------------------------------------------------------
 
 struct std::__nullptr_t
@@ -101,7 +99,20 @@ struct std::__nullptr_t
 
 };  // __nullptr_t
 
+// ----------------------------------------------------------------------
+
 inline std::__nullptr_t
   std::__get_nullptr_t( )  { return std::__nullptr_t(0); }
 
+// ======================================================================
+
 #endif
+
+// ======================================================================
+
+#if defined nullptr
+  #undef nullptr
+#endif
+#define nullptr ::std::__get_nullptr_t()
+
+// ======================================================================
