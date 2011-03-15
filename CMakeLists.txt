@@ -62,7 +62,8 @@ if( NOT GCC_VERSION )
            "Can't locate GCC_VERSION, required to test ${PROJECT_NAME}"
          )
 endif()
-message( STATUS "Using gcc ${GCC_VERSION}" )
+set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall" )
+message(STATUS "Using GCC ${GCC_VERSION} with ${CMAKE_CXX_FLAGS}")
 
 find_ups_product( cetbuildtools v1_08_00 )
 find_ups_boost( v1_42_0 )
