@@ -22,6 +22,15 @@ Qualifiers = "@qualifier@"
        execute( "get-directory-name subdir @qualifier@ ${UPS_PROD_FLAVOR}", UPS_ENV, ${UPS_PROD_NAME_UC}_FQ )
        fileTest( ${UPS_PROD_DIR}/${${UPS_PROD_NAME_UC}_FQ}, -d, "${UPS_PROD_DIR}/${${UPS_PROD_NAME_UC}_FQ} directory not found: SETUP ABORTED")
 
+Flavor     = ANY
+Qualifiers = "@qualifier@:debug"
+
+  Action = GetFQDir
+       # faking out unsetup
+       envSet( ${UPS_PROD_NAME_UC}_FQ, "" )
+       execute( "get-directory-name subdir @qualifier@.debug ${UPS_PROD_FLAVOR}", UPS_ENV, ${UPS_PROD_NAME_UC}_FQ )
+       fileTest( ${UPS_PROD_DIR}/${${UPS_PROD_NAME_UC}_FQ}, -d, "${UPS_PROD_DIR}/${${UPS_PROD_NAME_UC}_FQ} directory not found: SETUP ABORTED")
+
 Common:
   Action = setup
     prodDir()
