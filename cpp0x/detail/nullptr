@@ -30,13 +30,17 @@ struct std::__nullptr_t
 
   __nullptr_t( int __nat::* )  { }
 
+#ifndef __CINT__
   operator int __nat::* ( ) const  { return 0; }
+#endif
 
   template< class _Tp >
     operator _Tp* ( ) const  { return 0; }
 
+#ifndef __CINT__
   template< class _Tp, class _Up >
     operator _Tp _Up::* ( ) const  { return 0; }
+#endif
 
   friend  bool  operator == ( __nullptr_t, __nullptr_t )  { return true;  }
   friend  bool  operator != ( __nullptr_t, __nullptr_t )  { return false; }
@@ -101,8 +105,10 @@ struct std::__nullptr_t
 
 // ----------------------------------------------------------------------
 
+#ifndef __CINT__
 inline std::__nullptr_t
   std::__get_nullptr_t( )  { return std::__nullptr_t(0); }
+#endif
 
 // ======================================================================
 
