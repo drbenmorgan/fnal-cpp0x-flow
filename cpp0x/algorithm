@@ -151,6 +151,50 @@
 
 #endif
 
+// ----------------------------------------------------------------------
+// CPP0X_HAS_ALGORITHM_IS_SORTED
+
+#if defined(CPP0X_HAS_ALGORITHM_IS_SORTED)
+
+#else
+  namespace std  {
+
+    template< class FwdIter >
+    FwdIter
+      is_sorted_until( FwdIter b, FwdIter e )
+    {
+      if( b != e )
+        for( FwdIter prev = b;  ++b != e;  prev = b )
+          if( *b < *prev )
+            return b;
+      return e;
+    }
+
+    template< class FwdIter, class Compare >
+    FwdIter
+    is_sorted_until( FwdIter b, FwdIter e, Compare lt )
+    {
+      if( b != e )
+        for( FwdIter prev = b;  ++b != e;  prev = b )
+          if( lt(*b, *prev) )
+            return b;
+      return e;
+    }
+
+    template<class FwdIter>
+    bool
+      is_sorted( FwdIter b, FwdIter e )
+    { return is_sorted_until(b, e) == e; }
+
+    template<class FwdIter, class Compare>
+    bool
+      is_sorted( FwdIter b, FwdIter e, Compare lt )
+    { return is_sorted_until(b, e, lt) == e; }
+
+  }  // namespace std
+
+#endif
+
 // ======================================================================
 
 #endif

@@ -62,6 +62,20 @@ int
     ensure( 15, ans.second == a+6 );
   }
 
+  {
+    int  a[] = { 1, 2, 3, 3, 4, 0 };
+    ensure( 51, std::is_sorted(a+0, a+0) );
+    ensure( 52, std::is_sorted(a+1, a+1) );
+    ensure( 53, std::is_sorted(a+0, a+1) );
+    ensure( 54, std::is_sorted(a+0, a+2) );
+    ensure( 55, std::is_sorted(a+0, a+3) );
+    ensure( 56, std::is_sorted(a+0, a+4) );
+    ensure( 57, std::is_sorted(a+0, a+5) );
+
+    ensure( 61, ! std::is_sorted(a+0, a+6) );
+    ensure( 62, std::is_sorted_until(a+0, a+6) == a+5 );
+  }
+
   return 0;
 
 }  // main()

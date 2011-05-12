@@ -56,6 +56,7 @@
 #undef CPP0X_HAS_VARIADIC_TEMPLATES
 
 // --- Initially assume _no_ C++0X library features are implemented:
+#undef CPP0X_HAS_ALGORITHM_IS_SORTED
 #undef CPP0X_HAS_ALGORITHM_MIN_MAX
 #undef CPP0X_HAS_ARRAY_HDR
 #undef CPP0X_HAS_CSTDDEF_NULLPTR_T
@@ -118,6 +119,8 @@
   #if GCC_IS_AT_LEAST(4,6,0)
     #define CPP0X_HAS_NOEXCEPT
     #define CPP0X_HAS_NULLPTR
+
+    #define CPP0X_HAS_ALGORITHM_IS_SORTED
     #define CPP0X_HAS_CSTDDEF_NULLPTR_T
   #endif
 
@@ -176,7 +179,7 @@
 
 #else
   #include <boost/static_assert.hpp>
-  #define STATIC_ASSERT(pred,mesg) BOOST_STATIC_ASSERT(pred)
+  #define STATIC_ASSERT(pred,mesg) BOOST_STATIC_ASSERT((pred))
 
 #endif
 
@@ -185,6 +188,7 @@
 // ----------------------------------------------------------------------
 
 #if ! defined CPP0X_HAS_STATIC_ASSERT \
+ || ! defined CPP0X_HAS_ALGORITHM_IS_SORTED \
  || ! defined CPP0X_HAS_ALGORITHM_MIN_MAX \
  || ! defined CPP0X_HAS_ARRAY_HDR \
  || ! defined CPP0X_HAS_CSTDDEF_NULLPTR_T \
