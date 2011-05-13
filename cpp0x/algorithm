@@ -86,22 +86,22 @@
 
     namespace {
       template< class FwdIter >
-        inline
-        void  _mm_hop( FwdIter & i, FwdIter j )  { i = j, ++i; }
+        inline bool  _hop( FwdIter & i, FwdIter const j, FwdIter const e )
+      { return i = j, ++i != e; }
 
       template< class FwdIter >
-        void  _mm_adjust( FwdIter m, FwdIter & min
-                        , FwdIter M, FwdIter & max )
-      { if( *m < *min )  min = m;
-        if( *max < *M )  max = M;
+        void  _update_mM( FwdIter const m, FwdIter & min_so_far
+                        , FwdIter const M, FwdIter & max_so_far )
+      { if( *m < *min_so_far )  min_so_far = m;
+        if( *max_so_far < *M )  max_so_far = M;
       }
 
       template< class FwdIter, class Compare >
-        void  _mm_adjust( FwdIter m, FwdIter & min
-                        , FwdIter M, FwdIter & max
-                        , Compare lt )
-      { if( lt(*m, *min) )  min = m;
-        if( lt(*max, *M) )  max = M;
+        void  _update_mM( FwdIter const m, FwdIter & min_so_far
+                        , FwdIter const M, FwdIter & max_so_far
+                        , Compare const lt )
+      { if( lt(*m, *min_so_far) )  min_so_far = m;
+        if( lt(*max_so_far, *M) )  max_so_far = M;
       }
     }
 
@@ -109,45 +109,33 @@
     pair<FwdIter, FwdIter>
       minmax_element( FwdIter b, FwdIter const e )
     {
-      FwdIter n = b;
-      if( b == e  ||  ++n == e )
-        return make_pair(b, b);
-
-      pair<FwdIter,FwdIter> r =  *b < *n  ?  make_pair(b, n)
-                                          :  make_pair(n, b);
-
-      while( _mm_hop(b,n), b != e )  {
-        _mm_hop(n,b);
-        if( n == e )  { _mm_adjust(b, r.first, b, r.second ); break; }
-        if( *b < *n ) _mm_adjust(b, r.first, n, r.second );
-        else          _mm_adjust(n, r.first, b, r.second );
+      pair<FwdIter,FwdIter> r(b, b);
+      if( b != e )  {
+        for( FwdIter n = b; _hop(b,n,e) && _hop(n,b,e);  )
+          if( *b < *n ) _update_mM(b, r.first, n, r.second );
+          else          _update_mM(n, r.first, b, r.second );
+        if( b != e )
+          _update_mM(b, r.first, b, r.second );
       }
-
       return r;
     }
 
     template< class FwdIter, class Compare >
     pair<FwdIter, FwdIter>
-      minmax_element( FwdIter b, FwdIter const e, Compare lt )
+      minmax_element( FwdIter b, FwdIter const e, Compare const lt )
     {
-      FwdIter n = b;
-      if( b == e  ||  ++n == e )
-        return make_pair(b, b);
-
-      pair<FwdIter,FwdIter> r =  lt(*b, *n)  ?  make_pair(b, n)
-                                             :  make_pair(n, b);
-
-      while( _mm_hop(b,n), b != e )  {
-        _mm_hop(n,b);
-        if( n == e )    { _mm_adjust(b, r.first, b, r.second, lt ); break; }
-        if( lt(*b, *n) ) _mm_adjust(b, r.first, n, r.second, lt );
-        else             _mm_adjust(n, r.first, b, r.second, lt );
+      pair<FwdIter,FwdIter> r(b, b);
+      if( b != e )  {
+        for( FwdIter n = b; _hop(b,n,e) && _hop(n,b,e);  )
+          if( lt(*b, *n) ) _update_mM(b, r.first, n, r.second, lt );
+          else             _update_mM(n, r.first, b, r.second, lt );
+        if( b != e )
+          _update_mM(b, r.first, b, r.second );
       }
-
       return r;
     }
 
-  }  // namespace std
+  }  // std
 
 #endif
 
@@ -161,7 +149,7 @@
 
     template< class FwdIter >
     FwdIter
-      is_sorted_until( FwdIter b, FwdIter e )
+      is_sorted_until( FwdIter b, FwdIter const e )
     {
       if( b != e )
         for( FwdIter prev = b;  ++b != e;  prev = b )
@@ -172,7 +160,7 @@
 
     template< class FwdIter, class Compare >
     FwdIter
-    is_sorted_until( FwdIter b, FwdIter e, Compare lt )
+    is_sorted_until( FwdIter b, FwdIter const e, Compare const lt )
     {
       if( b != e )
         for( FwdIter prev = b;  ++b != e;  prev = b )
@@ -181,17 +169,17 @@
       return e;
     }
 
-    template<class FwdIter>
-    bool
-      is_sorted( FwdIter b, FwdIter e )
+    template< class FwdIter >
+    inline bool
+      is_sorted( FwdIter b, FwdIter const e )
     { return is_sorted_until(b, e) == e; }
 
-    template<class FwdIter, class Compare>
-    bool
-      is_sorted( FwdIter b, FwdIter e, Compare lt )
+    template< class FwdIter, class Compare >
+    inline bool
+      is_sorted( FwdIter b, FwdIter const e, Compare const lt )
     { return is_sorted_until(b, e, lt) == e; }
 
-  }  // namespace std
+  }  // std
 
 #endif
 
