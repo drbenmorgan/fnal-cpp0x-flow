@@ -4,24 +4,16 @@
 //
 // ======================================================================
 
+#define BOOST_TEST_MODULE ( "config test" )
+#include "boost/test/auto_unit_test.hpp"
 
 #include "cpp0x/detail/config"
-#include <cstdlib>
 
+BOOST_AUTO_TEST_SUITE( config_test )
 
-void
-  ensure( int which, bool claim )
-{ if( not claim )
-    std::exit(which);
+BOOST_AUTO_TEST_CASE( basic_test )
+{
+  BOOST_CHECK( GCC_IS_AT_LEAST(4,2,0) );
 }
 
-
-int
-  main( )
-{
-
-  ensure( 1, GCC_IS_AT_LEAST(4,2,0) );
-
-  return 0;
-
-}  // main()
+BOOST_AUTO_TEST_SUITE_END()

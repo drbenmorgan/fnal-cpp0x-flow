@@ -4,29 +4,41 @@
 //
 // ======================================================================
 
+#define BOOST_TEST_MODULE ( "numeric test" )
+#include "boost/test/auto_unit_test.hpp"
 
 #include "cpp0x/numeric"
-#include <cstdlib>
 
-
+template< class T >
 void
-  ensure( int which, bool claim )
+  do_test( unsigned const N )
 {
-  if( not claim )
-    std::exit(which);
+  T a[N];
+  std::iota( a+0, a+N, static_cast<T>(0) );
+  for( unsigned k = 0;  k != N;  ++k )
+    BOOST_CHECK( a[k] == static_cast<T>(k) );
+
+  T * p[N];
+  std::iota( p+0, p+N, a+0 );
+  for( unsigned k = 0;  k != N;  ++k )
+    BOOST_CHECK( p[k] == &a[k] );
 }
 
+BOOST_AUTO_TEST_SUITE( numeric_test )
 
-int
-  main( )
+BOOST_AUTO_TEST_CASE( int_test )
 {
-  const int N = 5;
-  int a[N];
+  do_test<int>(19);
+}
 
-  std::iota( a+0, a+N, 0 );
-  for( int k = 0;  k != N;  ++k )
-    ensure( k, a[k] == k );
+BOOST_AUTO_TEST_CASE( float_test )
+{
+  do_test<float>(13);
+}
 
-  return 0;
+BOOST_AUTO_TEST_CASE( long_double_test )
+{
+  do_test<long double>(17);
+}
 
-}  // main()
+BOOST_AUTO_TEST_SUITE_END()

@@ -4,27 +4,20 @@
 //
 // ======================================================================
 
+#define BOOST_TEST_MODULE ( "type_traits test" )
+#include "boost/test/auto_unit_test.hpp"
 
 #include "cpp0x/type_traits"
-#include <cstdlib>
 
+BOOST_AUTO_TEST_SUITE( type_traits )
 
-void
-  ensure( int which, bool claim )
-{ if( not claim )
-    std::exit(which);
-}
-
-
-typedef  std::make_unsigned<int>::type  uint;
-uint u = 0u;
-std::add_lvalue_reference<uint>::type  r = u;
-
-
-int
-  main( )
+BOOST_AUTO_TEST_CASE( basic_test )
 {
 
-  return r;
+  typedef  std::make_unsigned<int>::type  uint;
+  uint u = 0u;
+  std::add_lvalue_reference<uint>::type  r = u;
+  BOOST_CHECK( r == 0u );
+}
 
-}  // main()
+BOOST_AUTO_TEST_SUITE_END()

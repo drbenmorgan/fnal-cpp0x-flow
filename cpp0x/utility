@@ -28,7 +28,7 @@
     using ::boost::declval;
   }
 
-#elif BOOST_VERSION < 104500
+#elif BOOST_VERSION >= 104500
   #include "boost/utility/declval.hpp"
   namespace std {
     using ::boost::declval;

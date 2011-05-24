@@ -4,26 +4,19 @@
 //
 // ======================================================================
 
+#define BOOST_TEST_MODULE ( "memory test" )
+#include "boost/test/auto_unit_test.hpp"
 
 #include "cpp0x/memory"
-#include <cstdlib>
 
+BOOST_AUTO_TEST_SUITE( memory_test )
 
-void
-  ensure( int which, bool claim )
-{ if( not claim )
-    std::exit(which);
+BOOST_AUTO_TEST_CASE( basic_test )
+{
+  std::shared_ptr<double>  sp = std::make_shared<double>( 3.14 );
+  std::unique_ptr<int>     up( new int(0) );
+
+  BOOST_CHECK( (*up) * (*sp) == 0 );
 }
 
-
-std::shared_ptr<double>  sp = std::make_shared<double>( 3.14 );
-std::unique_ptr<int>     up( new int(0) );
-
-
-int
-  main( )
-{
-
-  return (*up) * (*sp);
-
-}  // main()
+BOOST_AUTO_TEST_SUITE_END()

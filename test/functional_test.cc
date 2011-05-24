@@ -4,26 +4,21 @@
 //
 // ======================================================================
 
+#define BOOST_TEST_MODULE ( "functional test" )
+#include "boost/test/auto_unit_test.hpp"
 
 #include "cpp0x/functional"
-#include <cstdlib>
 
-
-void
-  ensure( int which, bool claim )
-{ if( not claim )
-    std::exit(which);
-}
-
-
-int v( int i,int j ) { return j; }
-std::function<int(int)>  f( std::bind(v, 1, std::placeholders::_1) );
-
+BOOST_AUTO_TEST_SUITE( functional_test )
 
 int
-  main( )
+  v( int i,int j )
+{ return j; }
+
+BOOST_AUTO_TEST_CASE( basic_test )
 {
+  std::function<int(int)>  f( std::bind(v, 1, std::placeholders::_1) );
+  BOOST_CHECK( f(0) == 0 );
+}
 
-  return f(0);
-
-}  // main()
+BOOST_AUTO_TEST_SUITE_END()

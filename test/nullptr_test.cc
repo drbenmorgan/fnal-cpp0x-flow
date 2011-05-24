@@ -4,16 +4,10 @@
 //
 // ======================================================================
 
+#define BOOST_TEST_MODULE ( "nullptr test" )
+#include "boost/test/auto_unit_test.hpp"
 
 #include "cpp0x/cstddef"
-
-
-void
-  ensure( int which, bool claim )
-{ if( not claim )
-    std::exit(which);
-}
-
 
 struct A
 {
@@ -21,44 +15,43 @@ struct A
   friend  bool  operator == ( A, A )  { return true; }
 };  // A
 
+BOOST_AUTO_TEST_SUITE( nullptr_test )
 
-int
-  main( )
+BOOST_AUTO_TEST_CASE( basic_comparisons_test )
 {
-  { // --- basic comparisons
-    ensure( 1, nullptr == static_cast<void*>(0) );
-    ensure( 2, nullptr == nullptr );
-    ensure( 3, ! (nullptr != nullptr) );
-    ensure( 4, nullptr <= nullptr );
-    ensure( 5, ! (nullptr > nullptr) );
-    ensure( 6, nullptr >= nullptr );
-    ensure( 7, ! (nullptr < nullptr) );
-  }
+  BOOST_CHECK( nullptr == static_cast<void*>(0) );
+  BOOST_CHECK( nullptr == nullptr );
+  BOOST_CHECK( ! (nullptr != nullptr) );
+  BOOST_CHECK( nullptr <= nullptr );
+  BOOST_CHECK( ! (nullptr > nullptr) );
+  BOOST_CHECK( nullptr >= nullptr );
+  BOOST_CHECK( ! (nullptr < nullptr) );
+}
 
-  { // --- basic conversions
-    ensure( 11, ! static_cast<bool>(nullptr) );
+BOOST_AUTO_TEST_CASE( basic_conversions_test )
+{
+  BOOST_CHECK( ! static_cast<bool>(nullptr) );
 
-    int * p(0);
-    int * q(nullptr);
-    ensure( 12, p == nullptr && nullptr == p );
-    ensure( 13, q == nullptr && nullptr == q );
-    ensure( 14, p == q );
+  int * p(0);
+  int * q(nullptr);
+  BOOST_CHECK( p == nullptr && nullptr == p );
+  BOOST_CHECK( q == nullptr && nullptr == q );
+  BOOST_CHECK( p == q );
 
-    int A::* pmd = 0;
-    ensure( 15, pmd == nullptr );
-    void (A::* pmf)() = 0;
-    ensure( 16, pmf == nullptr );
-  }
+  int A::* pmd = 0;
+  BOOST_CHECK( pmd == nullptr );
+  void (A::* pmf)() = 0;
+  BOOST_CHECK( pmf == nullptr );
+}
 
-  { // --- other required properties
-    ensure( 21, sizeof(std::nullptr_t) == sizeof(void*) );
-    ensure( 22, A(0) == A(nullptr) );
-    char const * s1 = 0;
-    char const * s2 = "abc";
-    ensure( 23, s1 == nullptr );
-    ensure( 24, s2 != nullptr );
-  }
+BOOST_AUTO_TEST_CASE( other_properties_test )
+{
+  BOOST_CHECK( sizeof(std::nullptr_t) == sizeof(void*) );
+  BOOST_CHECK( A(0) == A(nullptr) );
+  char const * s1 = 0;
+  char const * s2 = "abc";
+  BOOST_CHECK( s1 == nullptr );
+  BOOST_CHECK( s2 != nullptr );
+}
 
-  return 0;
-
-}  // main()
+BOOST_AUTO_TEST_SUITE_END()
