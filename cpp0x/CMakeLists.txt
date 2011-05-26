@@ -8,6 +8,7 @@
 set( PUBLIC_HDRS
   algorithm
   array
+  cmath
   cstddef
   cstdint
   functional

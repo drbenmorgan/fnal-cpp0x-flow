@@ -1,0 +1,84 @@
+#ifndef CPP0X_CMATH
+#define CPP0X_CMATH
+
+// ======================================================================
+//
+// cmath - accommodations for as-yet unsupported C++0X features
+//
+// ----------------------------------------------------------------------
+//
+// This source file is intended for only short-term use.  Once compilers
+// support the necessary C++0X features, this file should be no longer
+// used and should go away.
+//
+// ======================================================================
+
+#include "cpp0x/detail/config"
+#include <cmath>
+
+// ----------------------------------------------------------------------
+// fpclassify
+
+#if defined(CPP0X_HAS_CMATH_FPCLASSIFICATION)
+
+#else
+  #include "boost/math/special_functions/fpclassify.hpp"
+  namespace std {
+    using ::boost::math::fpclassify;
+    using ::boost::math::isinf;
+    using ::boost::math::isnan;
+    using ::boost::math::isnormal;
+  }
+
+#endif
+
+// ----------------------------------------------------------------------
+// C99
+
+#if defined(CPP0X_HAS_CMATH_C99)
+
+#else
+  #include <tr1/cmath>
+  namespace std {
+    using std::tr1::acosh;
+    using std::tr1::asinh;
+    using std::tr1::atanh;
+    using std::tr1::cbrt;
+    using std::tr1::copysign;
+    using std::tr1::erf;
+    using std::tr1::erfc;
+    using std::tr1::exp2;
+    using std::tr1::expm1;
+    using std::tr1::fdim;
+    using std::tr1::fma;
+    using std::tr1::fmax;
+    using std::tr1::fmin;
+    using std::tr1::hypot;
+    using std::tr1::ilogb;
+    using std::tr1::lgamma;
+    using std::tr1::llrint;
+    using std::tr1::llround;
+    using std::tr1::log1p;
+    using std::tr1::log2;
+    using std::tr1::logb;
+    using std::tr1::lrint;
+    using std::tr1::lround;
+    using std::tr1::nan;
+    using std::tr1::nearbyint;
+    using std::tr1::nextafter;
+    using std::tr1::nexttoward;
+    using std::tr1::remainder;
+    using std::tr1::remquo;
+    using std::tr1::rint;
+    using std::tr1::round;
+    using std::tr1::scalbln;
+    using std::tr1::scalbn;
+    using std::tr1::tgamma;
+    using std::tr1::trunc;
+  }
+
+#endif
+
+// ======================================================================
+
+#endif

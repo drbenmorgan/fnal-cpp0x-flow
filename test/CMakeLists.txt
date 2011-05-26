@@ -8,6 +8,7 @@ include(CetTest)
 
 cet_test(algorithm_test   USE_BOOST_UNIT)
 cet_test(array_test       USE_BOOST_UNIT)
+cet_test(cmath_test       USE_BOOST_UNIT)
 cet_test(config_test      USE_BOOST_UNIT)
 cet_test(cstdint_test     USE_BOOST_UNIT)
 cet_test(functional_test  USE_BOOST_UNIT)
