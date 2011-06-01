@@ -19,6 +19,63 @@
 #include <utility>
 
 // ----------------------------------------------------------------------
+// CPP0X_HAS_ALGORITHM_ALL_OF
+
+#if defined(CPP0X_HAS_ALGORITHM_ALL_OF)
+
+#else
+  namespace std  {
+    template< class InIter, class Pred >
+    bool
+      all_of( InIter b, InIter const e, Pred const p )
+    {
+      for(  ;  b != e;  ++b )
+        if( ! p(*b) )
+          return false;
+      return true;
+    }
+  }  // std
+#endif
+
+// ----------------------------------------------------------------------
+// CPP0X_HAS_ALGORITHM_ALL_OF
+
+#if defined(CPP0X_HAS_ALGORITHM_ALL_OF)
+
+#else
+  namespace std  {
+    template< class InIter, class Pred >
+    bool
+      any_of( InIter b, InIter const e, Pred const p )
+    {
+      for(  ;  b != e;  ++b )
+        if( p(*b) )
+          return true;
+      return false;
+    }
+  }  // std
+#endif
+
+// ----------------------------------------------------------------------
+// CPP0X_HAS_ALGORITHM_NONE_OF
+
+#if defined(CPP0X_HAS_ALGORITHM_NONE_OF)
+
+#else
+  namespace std  {
+    template< class InIter, class Pred >
+    bool
+      none_of( InIter b, InIter const e, Pred const p )
+    {
+      for(  ;  b != e;  ++b )
+        if( p(*b) )
+          return false;
+      return true;
+    }
+  }  // std
+#endif
+
+// ----------------------------------------------------------------------
 // CPP0X_HAS_ALGORITHM_MIN_MAX
 
 #if defined(CPP0X_HAS_ALGORITHM_MIN_MAX)
@@ -29,7 +86,7 @@
     #if 0
     template< class FwdIter >
     FwdIter
-      min_element( FwdIter b, FwdIter e )
+      min_element( FwdIter b, FwdIter const e )
     {
       if( b == e )
         return e;
@@ -42,7 +99,7 @@
 
     template< class FwdIter, class Compare >
     FwdIter
-      min_element( FwdIter b, FwdIter e
+      min_element( FwdIter b, FwdIter const e
                  , Compare const lt
                  )
     {
@@ -57,7 +114,7 @@
 
     template< class FwdIter >
     FwdIter
-      max_element( FwdIter b, FwdIter e )
+      max_element( FwdIter b, FwdIter const e )
     {
       if( b == e )
         return e;
@@ -70,7 +127,7 @@
 
     template< class FwdIter, class Compare >
     FwdIter
-      max_element( FwdIter b, FwdIter e
+      max_element( FwdIter b, FwdIter const e
                  , Compare const lt
                  )
     {
@@ -86,20 +143,23 @@
 
     namespace {
       template< class FwdIter >
-        inline bool  _hop( FwdIter & i, FwdIter const j, FwdIter const e )
+      inline bool
+        _hop( FwdIter & i, FwdIter const j, FwdIter const e )
       { return i = j, ++i != e; }
 
       template< class FwdIter >
-        void  _update_mM( FwdIter const m, FwdIter & min_so_far
-                        , FwdIter const M, FwdIter & max_so_far )
+      void
+        _update_mM( FwdIter const m, FwdIter & min_so_far
+                  , FwdIter const M, FwdIter & max_so_far )
       { if( *m < *min_so_far )  min_so_far = m;
         if( *max_so_far < *M )  max_so_far = M;
       }
 
       template< class FwdIter, class Compare >
-        void  _update_mM( FwdIter const m, FwdIter & min_so_far
-                        , FwdIter const M, FwdIter & max_so_far
-                        , Compare const lt )
+      void
+        _update_mM( FwdIter const m, FwdIter & min_so_far
+                  , FwdIter const M, FwdIter & max_so_far
+                  , Compare const lt )
       { if( lt(*m, *min_so_far) )  min_so_far = m;
         if( lt(*max_so_far, *M) )  max_so_far = M;
       }
@@ -181,6 +241,24 @@
 
   }  // std
 
+#endif
+
+// ----------------------------------------------------------------------
+// CPP0X_HAS_ALGORITHM_FIND_IF_NOT
+
+#if defined(CPP0X_HAS_ALGORITHM_FIND_IF_NOT)
+
+#else
+  namespace std  {
+    template< class InIter, class Pred >
+    InIter
+      find_if_not( InIter b, InIter const e, Pred const p )
+    {
+      for(  ;  b != e  &&  p(*b);  ++b )
+        ;
+      return b;
+    }
+  }  // std
 #endif
 
 // ======================================================================
