@@ -16,6 +16,7 @@
 #include "cpp0x/detail/config"
 
 #include <algorithm>
+#include <iterator>
 #include <utility>
 
 // ----------------------------------------------------------------------
@@ -257,6 +258,37 @@
       for(  ;  b != e  &&  p(*b);  ++b )
         ;
       return b;
+    }
+  }  // std
+#endif
+
+// ----------------------------------------------------------------------
+// CPP0X_HAS_ALGORITHM_COPY_N
+
+#if defined(CPP0X_HAS_ALGORITHM_COPY_N)
+
+#else
+  namespace std  {
+    template< class InIter, class Sz, class OutIter >
+    OutIter
+     copy_n( InIter src, Sz n, OutIter dest )
+    {
+      if( n > 0 )
+        while( *dest = *src, --n > 0 )
+          *++dest = *++src;
+      return ++dest;
+    }
+
+    template< class InIter, class Sz, class FwdIter >
+    FwdIter
+     uninitialized_copy_n( InIter src, Sz n, FwdIter dest )
+    {
+      typedef  typename iterator_traits<FwdIter>::value_type  value_t;
+
+      if( n > 0 )
+        while( new (static_cast<void*>(&*dest)) value_t(*src), --n > 0 )
+          new (static_cast<void*>(&*++dest)) value_t(*++src);
+      return ++dest;
     }
   }  // std
 #endif
