@@ -28,7 +28,7 @@ namespace std {
     typedef decltype(nullptr) nullptr_t;
 
   #else
-    typedef __nullptr_t nullptr_t;
+    typedef _::__nullptr_t nullptr_t;
 
   #endif
 }
