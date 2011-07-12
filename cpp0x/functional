@@ -91,7 +91,7 @@
 #else
   #include "boost/ref.hpp"
   namespace std {
-    using ::boost::reference_wrapper;;
+    using ::boost::reference_wrapper;
     using ::boost::ref;
     using ::boost::cref;
   }
