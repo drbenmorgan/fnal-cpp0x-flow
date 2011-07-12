@@ -144,9 +144,7 @@
       struct enable_if : public ::boost::enable_if_c<b,T> { };
     template< bool b, class T, class F >
       struct conditional : public ::boost::mpl::if_c<b,T,F> { };
-    #if    defined(CPP0X_HAS_VARIADIC_TEMPLATES) \
-        && defined(CPP0X_HAS_DECLTYPE) \
-        && defined(CPP0X_HAS_UTILITY_DECLVAL)
+    #if defined(CPP0X_HAS_VARIADIC_TEMPLATES) && defined(CPP0X_HAS_DECLTYPE)
       template< class ... >
         struct common_type;
       template< class T >
