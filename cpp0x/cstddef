@@ -36,3 +36,5 @@ namespace std {
 // ======================================================================
 
 #endif
+
+// vi: set filetype=cpp:expandtab:shiftwidth=2:

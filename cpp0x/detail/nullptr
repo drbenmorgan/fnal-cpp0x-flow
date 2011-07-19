@@ -126,3 +126,5 @@ inline std::_::__nullptr_t
 #define nullptr ::std::_::__get_nullptr_t()
 
 // ======================================================================
+
+// vi: set filetype=cpp:expandtab:shiftwidth=2:

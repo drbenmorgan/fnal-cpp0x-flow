@@ -585,3 +585,5 @@ operator>=(const unique_ptr<T1, D1>& x, const unique_ptr<T2, D2>& y)
 // ======================================================================
 
 #endif
+
+// vi: set filetype=cpp:expandtab:shiftwidth=2:

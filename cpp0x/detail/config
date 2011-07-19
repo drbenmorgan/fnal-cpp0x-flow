@@ -58,13 +58,14 @@
 // --- Initially assume _no_ C++0X library features are implemented:
 #undef CPP0X_HAS_ALGORITHM_ALL_OF
 #undef CPP0X_HAS_ALGORITHM_ANY_OF
+#undef CPP0X_HAS_ALGORITHM_COPY_N
 #undef CPP0X_HAS_ALGORITHM_FIND_IF_NOT
 #undef CPP0X_HAS_ALGORITHM_IS_SORTED
 #undef CPP0X_HAS_ALGORITHM_MIN_MAX
 #undef CPP0X_HAS_ALGORITHM_NONE_OF
 #undef CPP0X_HAS_ARRAY_HDR
-#undef CPP0X_HAS_CMATH_CLASSIFICATION
 #undef CPP0X_HAS_CMATH_C99
+#undef CPP0X_HAS_CMATH_CLASSIFICATION
 #undef CPP0X_HAS_CSTDDEF_NULLPTR_T
 #undef CPP0X_HAS_CSTDINT_HDR
 #undef CPP0X_HAS_FUNCTIONAL_BIND
@@ -75,6 +76,7 @@
 #undef CPP0X_HAS_MEMORY_SHARED_PTR
 #undef CPP0X_HAS_MEMORY_UNIQUE_PTR
 #undef CPP0X_HAS_NUMERIC_IOTA
+#undef CPP0X_HAS_RANDOM_HDR
 #undef CPP0X_HAS_REGEX_HDR
 #undef CPP0X_HAS_SYSTEM_ERROR_HDR
 #undef CPP0X_HAS_TUPLE_HDR
@@ -112,6 +114,7 @@
     #define CPP0X_HAS_EXPLICIT_CONVERSION_OPERATORS
 
     #define CPP0X_HAS_ALGORITHM_ALL_OF
+    #define CPP0X_HAS_ALGORITHM_COPY_N
     #define CPP0X_HAS_ALGORITHM_ANY_OF
     #define CPP0X_HAS_ALGORITHM_FIND_IF_NOT
     #define CPP0X_HAS_ALGORITHM_NONE_OF
@@ -152,6 +155,7 @@
 
 #else
   #define CONSTEXPR_FCTN
+  #define constexpr const
 
 #endif
 
@@ -161,6 +165,7 @@
 
 #else
   #define CONSTEXPR_VAR const
+  #define constexpr const
 
 #endif
 
@@ -203,8 +208,6 @@
 // ----------------------------------------------------------------------
 
 #if ! defined CPP0X_HAS_STATIC_ASSERT \
- || ! defined CPP0X_HAS_ALGORITHM_IS_SORTED \
- || ! defined CPP0X_HAS_ALGORITHM_MIN_MAX \
  || ! defined CPP0X_HAS_ARRAY_HDR \
  || ! defined CPP0X_HAS_CSTDDEF_NULLPTR_T \
  || ! defined CPP0X_HAS_CSTDINT_HDR \
@@ -216,6 +219,7 @@
  || ! defined CPP0X_HAS_MEMORY_SHARED_PTR \
  || ! defined CPP0X_HAS_MEMORY_UNIQUE_PTR \
  || ! defined CPP0X_HAS_NUMERIC_IOTA \
+ || ! defined CPP0X_HAS_RANDOM_HDR \
  || ! defined CPP0X_HAS_REGEX_HDR \
  || ! defined CPP0X_HAS_SYSTEM_ERROR_HDR \
  || ! defined CPP0X_HAS_TUPLE_HDR \
@@ -232,3 +236,5 @@
 // ======================================================================
 
 #endif
+
+// vi: set filetype=cpp:expandtab:shiftwidth=2:
