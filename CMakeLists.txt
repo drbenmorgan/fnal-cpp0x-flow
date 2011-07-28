@@ -26,15 +26,15 @@ set( version v1_01_14 )
 set( qualifier a2 )
 
 # cetbuildtools contains our cmake modules
-set ( CETBUILDTOOLS_VERSION $ENV{CETBUILDTOOLS_VERSION} )
-if( NOT CETBUILDTOOLS_VERSION )
-  message( FATAL_ERROR "ERROR: setup cetbuildtools to get the cmake modules" )
+set (CETBUILDTOOLS_VERSION $ENV{CETBUILDTOOLS_VERSION})
+if(NOT CETBUILDTOOLS_VERSION)
+  message(FATAL_ERROR "ERROR: setup cetbuildtools to get the cmake modules")
 endif()
 set(CMAKE_MODULE_PATH "${CMAKE_ROOT}/Modules")
 set(CMAKE_MODULE_PATH $ENV{CETBUILDTOOLS_DIR}/Modules ${CMAKE_MODULE_PATH})
-message( STATUS "module path is ${CMAKE_MODULE_PATH}" )
+message(STATUS "module path is ${CMAKE_MODULE_PATH}")
 
-set( CMAKE_SKIP_RPATH ) # don't embed path in shared lib's or executables
+set(CMAKE_SKIP_RPATH ) # don't embed path in shared lib's or executables
 
 enable_testing()
 
@@ -47,47 +47,49 @@ include(FindUpsPackage)
 include(FindUpsBoost)
 include(SetFlavorQual)
 include(ParseUpsVersion)
+include(InstallSource)
 
 #set package version from ups version
-set_version_from_ups( ${version} )
+set_version_from_ups(${version})
 #define flavorqual and flavorqual_dir
 set_flavor_qual()
 
 # ----------------------------------------------------------------------
 # Describe build prerequisites:
 
-set( GCC_VERSION $ENV{GCC_VERSION} )  # compiler
-if( NOT GCC_VERSION )
-  message( FATAL_ERROR
+set(GCC_VERSION $ENV{GCC_VERSION} )  # compiler
+if(NOT GCC_VERSION)
+  message(FATAL_ERROR
            "Can't locate GCC_VERSION, required to test ${PROJECT_NAME}"
          )
 endif()
-set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall" )
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 message(STATUS "Using GCC ${GCC_VERSION} with ${CMAKE_CXX_FLAGS}")
 
-find_ups_product( cetbuildtools v1_11_00 )
-find_ups_boost( v1_42_0 regex )
+find_ups_product(cetbuildtools v1_11_00 unit_test_framework)
+find_ups_boost(v1_45_0 regex)
 
 # ----------------------------------------------------------------------
 # Describe include path:
 
-include_directories( "${PROJECT_SOURCE_DIR}" )  # project's headers
+include_directories("${PROJECT_SOURCE_DIR}" )  # project's headers
 
 # ----------------------------------------------------------------------
 # Describe build tree layout:
 
-set( LIBRARY_OUTPUT_PATH    ${PROJECT_BINARY_DIR}/lib )
-set( EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin )
+set(LIBRARY_OUTPUT_PATH    ${PROJECT_BINARY_DIR}/lib)
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 
 # ----------------------------------------------------------------------
 # Describe source tree layout:
 
-add_subdirectory( ${PROJECT_NAME} )  # source code
-add_subdirectory( test )             # test code
-add_subdirectory( ups )              # ups files
+add_subdirectory(${PROJECT_NAME} )  # source code
+add_subdirectory(test )             # test code
+add_subdirectory(ups )              # ups files
 
 # ----------------------------------------------------------------------
 # packaging utility
+
 include(UseCPack)
 
 #
