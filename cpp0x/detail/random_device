@@ -46,7 +46,7 @@ public:
   // constructors and destructor:
   explicit
     random_device( string const & token = "/dev/urandom" );
-  ~random_device( );
+  ~random_device( ) noexcept;
 
   // generating functions:
   result_type
@@ -69,7 +69,7 @@ public:
     throw runtime_error("std::random_device: can't open specified device!");
 }
 
-std::random_device::~random_device( )
+std::random_device::~random_device( ) noexcept
 {
   fclose(dev_random);
 }

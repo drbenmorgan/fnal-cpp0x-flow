@@ -8,6 +8,7 @@
 //
 // ======================================================================
 
+#include "cpp0x/detail/config"
 #include <iosfwd>
 
 namespace std {
@@ -56,7 +57,7 @@ public:
     os.fill( os.widen(' ') );
   }
 
-  ~stream_state_guard()
+  ~stream_state_guard( ) noexcept
   {
     stream.flags( fmtflags );
     stream.fill( fillchar );
