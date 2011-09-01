@@ -39,9 +39,9 @@
 #endif
 
 // ----------------------------------------------------------------------
-// CPP0X_HAS_ALGORITHM_ALL_OF
+// CPP0X_HAS_ALGORITHM_ANY_OF
 
-#if defined(CPP0X_HAS_ALGORITHM_ALL_OF)
+#if defined(CPP0X_HAS_ALGORITHM_ANY_OF)
 
 #else
   namespace std  {
