@@ -221,7 +221,7 @@
 
     template< class FwdIter, class Compare >
     FwdIter
-    is_sorted_until( FwdIter b, FwdIter const e, Compare const lt )
+      is_sorted_until( FwdIter b, FwdIter const e, Compare const lt )
     {
       if( b != e )
         for( FwdIter prev = b;  ++b != e;  prev = b )
@@ -271,7 +271,7 @@
   namespace std  {
     template< class InIter, class Sz, class OutIter >
     OutIter
-     copy_n( InIter src, Sz n, OutIter dest )
+      copy_n( InIter src, Sz n, OutIter dest )
     {
       if( n > 0 )
         while( *dest = *src, --n > 0 )
@@ -281,7 +281,7 @@
 
     template< class InIter, class Sz, class FwdIter >
     FwdIter
-     uninitialized_copy_n( InIter src, Sz n, FwdIter dest )
+      uninitialized_copy_n( InIter src, Sz n, FwdIter dest )
     {
       typedef  typename iterator_traits<FwdIter>::value_type  value_t;
 
@@ -304,9 +304,9 @@
     template< class RAIter, class URNG >
     void
 #ifdef CPP0X_HAS_RVALUE_REFERENCES
-     shuffle( RAIter b, RAIter const e, URNG && g )
+      shuffle( RAIter b, RAIter const e, URNG && g )
 #else
-     shuffle( RAIter b, RAIter const e, URNG & g )
+      shuffle( RAIter b, RAIter const e, URNG & g )
 #endif
     {
       typedef  typename iterator_traits<RAIter>::difference_type  diff_t;
@@ -332,7 +332,7 @@
   namespace std  {
     template< class InIter, class Pred >
     bool
-     is_partitioned( InIter b, InIter const e, Pred const p )
+      is_partitioned( InIter b, InIter const e, Pred const p )
     {
       for(  ; b != e && p(*b); ++b )
         ;
@@ -352,7 +352,7 @@
   namespace std  {
     template< class FwdIter, class Pred >
     FwdIter
-     partition_point( FwdIter b, FwdIter e, Pred const p )
+      partition_point( FwdIter b, FwdIter e, Pred const p )
     {
       typedef  typename iterator_traits<FwdIter>::difference_type  diff_t;
       for( diff_t len = distance(b, e);  len != 0;  )  {
