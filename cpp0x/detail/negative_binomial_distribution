@@ -101,7 +101,7 @@ private:
 
   // helper functions:
   template< class URNG >
-    Int  generate( URNG & );
+    Int  generate( URNG & ) const;
   static range_error bad_k;
   static range_error bad_p;
 
@@ -186,7 +186,7 @@ template< class Int >
 template< class URNG >
 Int
   std::negative_binomial_distribution<Int>::param_t::
-  generate( URNG & u )
+  generate( URNG & u ) const
 {
   bernoulli_distribution b_dist(p_);
 

@@ -101,7 +101,7 @@ private:
 
   // helper functions:
   template< class URNG >
-    Real  generate( URNG & );
+    Real  generate( URNG & ) const;
   static range_error bad_b;
 
 public:
@@ -164,7 +164,7 @@ template< class Real >
 template< class URNG >
 Real
   std::cauchy_distribution<Real>::param_t::
-  generate( URNG & u )
+  generate( URNG & u ) const
 {
   constexpr size_t       nbits = numeric_limits<double>::digits;
   constexpr result_type  pi    = 3.1415926535897932384626433832795L;

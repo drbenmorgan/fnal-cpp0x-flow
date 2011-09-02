@@ -102,8 +102,8 @@ private:
 
   // helper functions:
   template< class URNG >
-    Real  generate( URNG & );
-  bool  reject( Real, Real, Real );
+    Real  generate( URNG & ) const;
+  bool  reject( Real, Real, Real ) const;
   static range_error bad_alpha;
   static range_error bad_beta;
 
@@ -189,7 +189,7 @@ template< class Real >
 template< class URNG >
 Real
   std::gamma_distribution<Real>::param_t::
-  generate( URNG & urng )
+  generate( URNG & urng ) const
 {
   constexpr size_t  nbits = numeric_limits<Real>::digits;
   constexpr Real  one(1.0), two(2.0);
@@ -242,7 +242,7 @@ Real
 template< class Real >
 bool
   std::gamma_distribution<Real>::param_t::
-  reject( Real v, Real k, Real alpha_minus_one )
+  reject( Real v, Real k, Real alpha_minus_one ) const
 {
   constexpr Real  one(1.0), two(2.0);
 

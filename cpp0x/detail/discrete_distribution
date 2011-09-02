@@ -106,7 +106,7 @@ private:
   // helper functions:
   void  validate_and_normalize( );
   template< class URNG >
-    Int  generate( URNG & );
+    Int  generate( URNG & ) const;
   static range_error  need_nonNaN_weights;
   static range_error  need_nonInf_weights;
   static range_error  need_a_nonzero_weight;
@@ -235,7 +235,7 @@ template< class Int >
 template< class URNG >
 Int
   std::discrete_distribution<Int>::param_t::
-  generate( URNG & u )
+  generate( URNG & u ) const
 {
   //constexpr size_t  nbits = numeric_limits<double>::digits;
   //double x = generate_canonical<double,nbits>(u);

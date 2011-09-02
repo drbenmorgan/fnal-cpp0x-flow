@@ -100,7 +100,7 @@ private:
 
   // helper functions:
   template< class URNG >
-    Int  generate( URNG & );
+    Int  generate( URNG & ) const;
   static range_error bad_t;
   static range_error bad_p;
 
@@ -185,7 +185,7 @@ template< class Int >
 template< class URNG >
 Int
   std::binomial_distribution<Int>::param_t::
-  generate( URNG & u )
+  generate( URNG & u ) const
 {
   constexpr size_t  nbits = numeric_limits<double>::digits;
 

@@ -100,7 +100,7 @@ private:
 
   // helper functions:
   template< class URNG >
-    Real  generate( URNG & );
+    Real  generate( URNG & ) const;
   static range_error bad_n;
 
 public:
@@ -180,7 +180,7 @@ template< class Real >
 template< class URNG >
 Real
   std::chi_squared_distribution<Real>::param_t::
-  generate( URNG & u )
+  generate( URNG & u ) const
 {
   constexpr Real  two(2.0);
   gamma_distribution<Real>  gamma_d(n_/two, two);

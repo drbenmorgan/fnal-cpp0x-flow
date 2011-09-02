@@ -103,7 +103,7 @@ private:
 
   // helper functions:
   template< class URNG >
-    Real  generate( URNG & );
+    Real  generate( URNG & ) const;
   static range_error bad_s;
 
 public:
@@ -192,7 +192,7 @@ template< class Real >
 template< class URNG >
 Real
   std::lognormal_distribution<Real>::param_t::
-  generate( URNG & u )
+  generate( URNG & u ) const
 {
   normal_distribution<result_type> norm_d(m_, s_);
   return exp( norm_d(u) );

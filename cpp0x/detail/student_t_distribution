@@ -106,7 +106,7 @@ private:
 
   // helper functions:
   template< class URNG >
-    Real  generate( URNG & );
+    Real  generate( URNG & ) const;
   static range_error bad_n;
 
 public:
@@ -186,7 +186,7 @@ template< class Real >
 template< class URNG >
 Real
   std::student_t_distribution<Real>::param_t::
-  generate( URNG & u )
+  generate( URNG & u ) const
 {
   work_t  two(2.0);
   gamma_distribution<work_t> gamma_d(work_t(n_)/two, two);

@@ -99,12 +99,13 @@ template< class Real >
 private:
   Real  mean_;
   Real  stddev_;
-  bool  have_next_value_;
-  Real  next_value_;
+
+  mutable bool  have_next_value_;
+  mutable Real  next_value_;
 
   // helper functions:
   template< class URNG >
-    Real  generate( URNG & );
+    Real  generate( URNG & ) const;
   static range_error bad_stddev;
 
 public:
@@ -202,7 +203,7 @@ template< class Real >
 template< class URNG >
 Real
   std::normal_distribution<Real>::param_t::
-  generate( URNG & u )
+  generate( URNG & u ) const
 {
   if( have_next_value_ )
     return have_next_value_ = false
