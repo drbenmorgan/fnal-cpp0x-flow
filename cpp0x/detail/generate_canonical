@@ -8,8 +8,10 @@
 // ======================================================================
 
 #include "cpp0x/cstddef"
+#include "cpp0x/cstdint"
+#include "cpp0x/detail/log2"
+//#include <iostream>
 #include <limits>
-#include <iostream>
 
 namespace std {
 

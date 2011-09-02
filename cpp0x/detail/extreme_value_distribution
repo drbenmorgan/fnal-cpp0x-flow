@@ -12,6 +12,7 @@
 #include "cpp0x/cmath"
 #include "cpp0x/detail/generate_canonical"
 #include "cpp0x/detail/stats"
+#include "cpp0x/detail/stream_state_guard"
 #include "cpp0x/type_traits"
 #include <iosfwd>
 #include <limits>
