@@ -16,6 +16,7 @@ set( PUBLIC_HDRS
   numeric
   random
   regex
+  string
   system_error
   tuple
   type_traits
