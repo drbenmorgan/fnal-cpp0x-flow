@@ -12,6 +12,7 @@ set( PUBLIC_HDRS
   cstddef
   cstdint
   functional
+  iterator
   memory
   numeric
   random
