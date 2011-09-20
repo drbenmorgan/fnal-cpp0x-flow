@@ -28,6 +28,7 @@
   #include <cstdlib>
   #include <limits>
   #include <stdexcept>
+
   namespace std  {
     namespace _  {
       class errno_saver
@@ -70,21 +71,21 @@
         char       *          e;
         _::errno_saver const  es;
         size_t     *   const  idx;
-      };
+      };  // from_string
 
       template< class From >
       string
         to_string( From val, char const fmt[] )
       {
-        static  constexpr size_t  sz = 25u;
-        for( int cap = sz;  true;  cap += sz )  {
-          string  s(cap, char());
+        static  constexpr size_t  delta = 25u;
+        for( int capacity = delta;  true;  capacity += delta )  {
+          string  s(capacity, char());
           _::errno_saver const  es;
-          int  len = snprintf(&s[0], cap, fmt, val);
-          if( len < cap )
+          int  len = snprintf(&s[0], capacity, fmt, val);
+          if( len < capacity )
             return s.resize(len), s;
         }
-      }
+      }  // to_string()
 
     }  // std::_
 
