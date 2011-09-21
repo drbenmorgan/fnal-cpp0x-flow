@@ -8,7 +8,6 @@
 //
 // ======================================================================
 
-#include "cpp0x/detail/config"
 #include <iosfwd>
 
 namespace std {

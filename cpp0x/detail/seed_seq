@@ -7,13 +7,13 @@
 //
 // ======================================================================
 
+#include "cpp0x/algorithm"
 #include "cpp0x/cstddef"
 #include "cpp0x/cstdint"
 #include "cpp0x/detail/low_order_bits"
+#include "cpp0x/iterator"
 #include "cpp0x/type_traits"
-#include <iterator>
 #include <vector>
-#include <algorithm>
 //include "cpp0x/initializer_list"
 
 // ======================================================================

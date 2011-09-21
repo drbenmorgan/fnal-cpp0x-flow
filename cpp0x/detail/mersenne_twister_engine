@@ -14,8 +14,8 @@
 #include "cpp0x/detail/low_order_bits"
 #include "cpp0x/detail/pow2"
 #include "cpp0x/detail/stream_state_guard"
+#include "cpp0x/iterator"
 #include <iosfwd>
-#include <iterator>
 #include <limits>
 #include <stdexcept>
 

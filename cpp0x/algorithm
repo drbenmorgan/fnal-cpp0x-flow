@@ -15,9 +15,9 @@
 
 #include "cpp0x/detail/config"
 
+#include "cpp0x/iterator"
+#include "cpp0x/utility"
 #include <algorithm>
-#include <iterator>
-#include <utility>
 
 // ----------------------------------------------------------------------
 // CPP0X_HAS_ALGORITHM_ALL_OF

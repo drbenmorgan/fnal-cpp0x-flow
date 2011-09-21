@@ -13,11 +13,11 @@
 #include "cpp0x/cmath"
 #include "cpp0x/detail/generate_canonical"
 #include "cpp0x/detail/stream_state_guard"
+#include "cpp0x/iterator"
+#include "cpp0x/numeric"
 #include "cpp0x/type_traits"
 #include <iosfwd>
-#include <iterator>
 #include <limits>
-#include <numeric>
 #include <stdexcept>
 #include <vector>
 
