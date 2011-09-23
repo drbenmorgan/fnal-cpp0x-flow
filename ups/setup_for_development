@@ -36,7 +36,7 @@ tnotnull UPS_DIR || echo "$msg2"
 # set up external products
 setup cmake
 setup gcc v4_5_1
-setup -j boost v1_45_0 -q gcc45
+setup -j boost v1_46_1 -q gcc45
 # set up CET products
 setup cetbuildtools v1_11_09
 
