@@ -22,8 +22,8 @@ cmake_minimum_required(VERSION 2.6)  # use cmake 2.6 or later
 
 project( cpp0x )
 set( product cpp0x )
-set( version v1_02_01 )
-set( qualifier a3 )
+set( version v1_02_02 )
+set( qualifier a4 )
 
 # cetbuildtools contains our cmake modules
 set (CETBUILDTOOLS_VERSION $ENV{CETBUILDTOOLS_VERSION})
@@ -66,8 +66,8 @@ endif()
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 message(STATUS "Using GCC ${GCC_VERSION} with ${CMAKE_CXX_FLAGS}")
 
-find_ups_product(cetbuildtools v1_11_00 unit_test_framework)
-find_ups_boost(v1_46_1 regex)
+find_ups_product(cetbuildtools v1_12_00)
+find_ups_boost(v1_46_1 regex unit_test_framework)
 
 # ----------------------------------------------------------------------
 # Describe include path:
