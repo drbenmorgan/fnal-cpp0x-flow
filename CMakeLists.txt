@@ -22,7 +22,7 @@ cmake_minimum_required(VERSION 2.6)  # use cmake 2.6 or later
 
 project( cpp0x )
 set( product cpp0x )
-set( version v1_02_02 )
+set( version v1_02_03 )
 set( qualifier a4 )
 
 # cetbuildtools contains our cmake modules
@@ -63,7 +63,7 @@ if(NOT GCC_VERSION)
            "Can't locate GCC_VERSION, required to test ${PROJECT_NAME}"
          )
 endif()
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++98 -g -O3  -Wall -Werror=return-type -pedantic -Wextra -Wno-long-long -Winit-self -Wcast-qual -Woverloaded-virtual")
 message(STATUS "Using GCC ${GCC_VERSION} with ${CMAKE_CXX_FLAGS}")
 
 find_ups_product(cetbuildtools v1_12_00)

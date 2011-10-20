@@ -42,6 +42,7 @@ set( DETAIL_HDRS
   detail/generate_canonical
   detail/geometric_distribution
   detail/independent_bits_engine
+  detail/is_nonnegative
   detail/is_sseq
   detail/linear_congruential_engine
   detail/log2

@@ -9,9 +9,9 @@
 
 #include "cpp0x/numeric"
 
-template< class T >
+template< class T, unsigned N >
 void
-  do_test( unsigned const N )
+  do_test( )
 {
   T a[N];
   std::iota( a+0, a+N, static_cast<T>(0) );
@@ -28,17 +28,17 @@ BOOST_AUTO_TEST_SUITE( numeric_test )
 
 BOOST_AUTO_TEST_CASE( int_test )
 {
-  do_test<int>(19);
+  do_test<int,19>();
 }
 
 BOOST_AUTO_TEST_CASE( float_test )
 {
-  do_test<float>(13);
+  do_test<float,13>();
 }
 
 BOOST_AUTO_TEST_CASE( long_double_test )
 {
-  do_test<long double>(17);
+  do_test<long double,17>();
 }
 
 BOOST_AUTO_TEST_SUITE_END()

@@ -12,7 +12,7 @@
 BOOST_AUTO_TEST_SUITE( functional_test )
 
 int
-  v( int i,int j )
+  v( int,int j )
 { return j; }
 
 BOOST_AUTO_TEST_CASE( basic_test )
