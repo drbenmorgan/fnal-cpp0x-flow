@@ -59,30 +59,41 @@ void
 
 BOOST_AUTO_TEST_SUITE( random_test )
 
-BOOST_AUTO_TEST_CASE( bernoulli_distribution_test )
-{
-  sample< bernoulli_distribution >();
-}
+#if defined CPP0X_HAS_RANDOM_HDR
 
-BOOST_AUTO_TEST_CASE( binomial_distribution_test )
-{
-  sample< binomial_distribution<int     > >();
-  sample< binomial_distribution<long    > >();
-  sample< binomial_distribution<unsigned> >();
-}
+  BOOST_AUTO_TEST_CASE( no_need_to_test )
+  {
+    BOOST_CHECK( true );
+  }
 
-BOOST_AUTO_TEST_CASE( geometric_distribution_test )
-{
-  sample< geometric_distribution<int     > >();
-  sample< geometric_distribution<long    > >();
-  sample< geometric_distribution<unsigned> >();
-}
+#else
 
-BOOST_AUTO_TEST_CASE( negative_binomial_distribution_test )
-{
-  sample< negative_binomial_distribution<int     > >();
-  sample< negative_binomial_distribution<long    > >();
-  sample< negative_binomial_distribution<unsigned> >();
-}
+  BOOST_AUTO_TEST_CASE( bernoulli_distribution_test )
+  {
+    sample< bernoulli_distribution >();
+  }
+
+  BOOST_AUTO_TEST_CASE( binomial_distribution_test )
+  {
+    sample< binomial_distribution<int     > >();
+    sample< binomial_distribution<long    > >();
+    sample< binomial_distribution<unsigned> >();
+  }
+
+  BOOST_AUTO_TEST_CASE( geometric_distribution_test )
+  {
+    sample< geometric_distribution<int     > >();
+    sample< geometric_distribution<long    > >();
+    sample< geometric_distribution<unsigned> >();
+  }
+
+  BOOST_AUTO_TEST_CASE( negative_binomial_distribution_test )
+  {
+    sample< negative_binomial_distribution<int     > >();
+    sample< negative_binomial_distribution<long    > >();
+    sample< negative_binomial_distribution<unsigned> >();
+  }
+
+#endif  // CPP0X_HAS_RANDOM_HDR
 
 BOOST_AUTO_TEST_SUITE_END()

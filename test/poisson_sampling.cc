@@ -59,35 +59,46 @@ void
 
 BOOST_AUTO_TEST_SUITE( random_test )
 
-BOOST_AUTO_TEST_CASE( poisson_distribution_test )
-{
-  sample< poisson_distribution<int     > >();
-  sample< poisson_distribution<long    > >();
-  sample< poisson_distribution<unsigned> >();
-}
+#if defined CPP0X_HAS_RANDOM_HDR
 
-BOOST_AUTO_TEST_CASE( exponential_distribution_test )
-{
-  sample< exponential_distribution<float       > >();
-  sample< exponential_distribution<double      > >();
-}
+  BOOST_AUTO_TEST_CASE( no_need_to_test )
+  {
+    BOOST_CHECK( true );
+  }
 
-BOOST_AUTO_TEST_CASE( gamma_distribution_test )
-{
-  sample< gamma_distribution<double> >();
-  sample< gamma_distribution<float > >();
-}
+#else
 
-BOOST_AUTO_TEST_CASE( weibull_distribution_test )
-{
-  sample< weibull_distribution<double> >();
-  sample< weibull_distribution<float > >();
-}
+  BOOST_AUTO_TEST_CASE( poisson_distribution_test )
+  {
+    sample< poisson_distribution<int     > >();
+    sample< poisson_distribution<long    > >();
+    sample< poisson_distribution<unsigned> >();
+  }
 
-BOOST_AUTO_TEST_CASE( extreme_value_distribution_test )
-{
-  sample< extreme_value_distribution<double> >();
-  sample< extreme_value_distribution<float > >();
-}
+  BOOST_AUTO_TEST_CASE( exponential_distribution_test )
+  {
+    sample< exponential_distribution<float       > >();
+    sample< exponential_distribution<double      > >();
+  }
+
+  BOOST_AUTO_TEST_CASE( gamma_distribution_test )
+  {
+    sample< gamma_distribution<double> >();
+    sample< gamma_distribution<float > >();
+  }
+
+  BOOST_AUTO_TEST_CASE( weibull_distribution_test )
+  {
+    sample< weibull_distribution<double> >();
+    sample< weibull_distribution<float > >();
+  }
+
+  BOOST_AUTO_TEST_CASE( extreme_value_distribution_test )
+  {
+    sample< extreme_value_distribution<double> >();
+    sample< extreme_value_distribution<float > >();
+  }
+
+#endif  // CPP0X_HAS_RANDOM_HDR
 
 BOOST_AUTO_TEST_SUITE_END()

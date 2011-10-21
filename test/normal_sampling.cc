@@ -63,45 +63,56 @@ void
 
 BOOST_AUTO_TEST_SUITE( random_test )
 
-BOOST_AUTO_TEST_CASE( normal_distribution_test )
-{
-  sample< normal_distribution<double> >();
-  sample< normal_distribution<float > >();
-}
+#if defined CPP0X_HAS_RANDOM_HDR
 
-BOOST_AUTO_TEST_CASE( lognormal_distribution_test )
-{
-  sample< lognormal_distribution<double> >();
-  sample< lognormal_distribution<float > >();
-}
+  BOOST_AUTO_TEST_CASE( no_need_to_test )
+  {
+    BOOST_CHECK( true );
+  }
 
-BOOST_AUTO_TEST_CASE( chi_squared_distribution_test )
-{
-  sample< chi_squared_distribution<double> >();
-  sample< chi_squared_distribution<float > >();
-}
+#else
 
-#if 0
-BOOST_AUTO_TEST_CASE( cauchy_distribution_test )
-{
-  // this distribution's statistics are undefined!
-  sample< cauchy_distribution<double> >();
-  sample< cauchy_distribution<float > >();
-}
+  BOOST_AUTO_TEST_CASE( normal_distribution_test )
+  {
+    sample< normal_distribution<double> >();
+    sample< normal_distribution<float > >();
+  }
 
-BOOST_AUTO_TEST_CASE( fisher_f_distribution_test )
-{
-  // this distribution's statistics are poorly defined!
-  sample< fisher_f_distribution<double> >();
-  sample< fisher_f_distribution<float > >();
-}
+  BOOST_AUTO_TEST_CASE( lognormal_distribution_test )
+  {
+    sample< lognormal_distribution<double> >();
+    sample< lognormal_distribution<float > >();
+  }
 
-BOOST_AUTO_TEST_CASE( student_t_distribution_test )
-{
-  # default distribution has no mean!
-  sample< student_t_distribution<double> >();
-  sample< student_t_distribution<float > >();
-}
-#endif  // 0
+  BOOST_AUTO_TEST_CASE( chi_squared_distribution_test )
+  {
+    sample< chi_squared_distribution<double> >();
+    sample< chi_squared_distribution<float > >();
+  }
+
+  #if 0
+  BOOST_AUTO_TEST_CASE( cauchy_distribution_test )
+  {
+    // this distribution's statistics are undefined!
+    sample< cauchy_distribution<double> >();
+    sample< cauchy_distribution<float > >();
+  }
+
+  BOOST_AUTO_TEST_CASE( fisher_f_distribution_test )
+  {
+    // this distribution's statistics are poorly defined!
+    sample< fisher_f_distribution<double> >();
+    sample< fisher_f_distribution<float > >();
+  }
+
+  BOOST_AUTO_TEST_CASE( student_t_distribution_test )
+  {
+    # default distribution has no mean!
+    sample< student_t_distribution<double> >();
+    sample< student_t_distribution<float > >();
+  }
+  #endif  // 0
+
+#endif  // CPP0X_HAS_RANDOM_HDR
 
 BOOST_AUTO_TEST_SUITE_END()

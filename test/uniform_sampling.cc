@@ -59,17 +59,28 @@ void
 
 BOOST_AUTO_TEST_SUITE( random_test )
 
-BOOST_AUTO_TEST_CASE( uniform_int_distribution_test )
-{
-  sample< uniform_int_distribution<int     > >();
-  sample< uniform_int_distribution<long    > >();
-  sample< uniform_int_distribution<unsigned> >();
-}
+#if defined CPP0X_HAS_RANDOM_HDR
 
-BOOST_AUTO_TEST_CASE( uniform_real_distribution_test )
-{
-  sample< uniform_real_distribution<double> >();
-  sample< uniform_real_distribution<float > >();
-}
+  BOOST_AUTO_TEST_CASE( no_need_to_test )
+  {
+    BOOST_CHECK( true );
+  }
+
+#else
+
+  BOOST_AUTO_TEST_CASE( uniform_int_distribution_test )
+  {
+    sample< uniform_int_distribution<int     > >();
+    sample< uniform_int_distribution<long    > >();
+    sample< uniform_int_distribution<unsigned> >();
+  }
+
+  BOOST_AUTO_TEST_CASE( uniform_real_distribution_test )
+  {
+    sample< uniform_real_distribution<double> >();
+    sample< uniform_real_distribution<float > >();
+  }
+
+#endif  // CPP0X_HAS_RANDOM_HDR
 
 BOOST_AUTO_TEST_SUITE_END()
