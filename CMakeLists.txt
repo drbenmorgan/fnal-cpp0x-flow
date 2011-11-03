@@ -22,7 +22,7 @@ cmake_minimum_required(VERSION 2.6)  # use cmake 2.6 or later
 
 project( cpp0x )
 set( product cpp0x )
-set( version v1_02_03 )
+set( version v1_02_04 )
 set( qualifier a4 )
 
 # cetbuildtools contains our cmake modules
