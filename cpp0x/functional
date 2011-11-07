@@ -23,10 +23,14 @@
 #if defined(CPP0X_HAS_FUNCTIONAL_BIND)
 
 #else
-  #pragma GCC diagnostic push
-  #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+  #if GCC_IS_AT_LEAST(4, 6, 0)
+    #pragma GCC diagnostic push
+    #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+  #endif
   #include "boost/bind.hpp"
-  #pragma GCC diagnostic pop
+  #if GCC_IS_AT_LEAST(4, 6, 0)
+    #pragma GCC diagnostic pop
+  #endif
   namespace std {
     using ::boost::bind;
     using ::boost::is_bind_expression;
@@ -52,10 +56,14 @@
 #if defined(CPP0X_HAS_FUNCTIONAL_FUNCTION)
 
 #else
-  #pragma GCC diagnostic push
-  #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+  #if GCC_IS_AT_LEAST(4, 6, 0)
+    #pragma GCC diagnostic push
+    #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+  #endif
   #include "boost/function.hpp"
-  #pragma GCC diagnostic pop
+  #if GCC_IS_AT_LEAST(4, 6, 0)
+    #pragma GCC diagnostic pop
+  #endif
   namespace std {
     using ::boost::bad_function_call;
     using ::boost::function;
@@ -69,10 +77,14 @@
 #if defined(CPP0X_HAS_FUNCTIONAL_HASH)
 
 #else
-  #pragma GCC diagnostic push
-  #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+  #if GCC_IS_AT_LEAST(4, 6, 0)
+    #pragma GCC diagnostic push
+    #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+  #endif
   #include "boost/functional/hash.hpp"
-  #pragma GCC diagnostic pop
+  #if GCC_IS_AT_LEAST(4, 6, 0)
+    #pragma GCC diagnostic pop
+  #endif
   namespace std {
     using ::boost::hash;
   }
@@ -85,10 +97,14 @@
 #if defined(CPP0X_HAS_FUNCTIONAL_MEM_FN)
 
 #else
-  #pragma GCC diagnostic push
-  #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+  #if GCC_IS_AT_LEAST(4, 6, 0)
+    #pragma GCC diagnostic push
+    #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+  #endif
   #include "boost/mem_fn.hpp"
-  #pragma GCC diagnostic pop
+  #if GCC_IS_AT_LEAST(4, 6, 0)
+    #pragma GCC diagnostic pop
+  #endif
   namespace std {
     using ::boost::mem_fn;
   }
@@ -101,10 +117,14 @@
 #if defined(CPP0X_HAS_FUNCTIONAL_REFERENCE_WRAPPER)
 
 #else
-  #pragma GCC diagnostic push
-  #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+  #if GCC_IS_AT_LEAST(4, 6, 0)
+    #pragma GCC diagnostic push
+    #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+  #endif
   #include "boost/ref.hpp"
-  #pragma GCC diagnostic pop
+  #if GCC_IS_AT_LEAST(4, 6, 0)
+    #pragma GCC diagnostic pop
+  #endif
   namespace std {
     using ::boost::reference_wrapper;
     using ::boost::ref;
