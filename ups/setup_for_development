@@ -9,7 +9,7 @@
 #    set fw_db=/some/path; source /some/path/this_file
 # or  fw_db=/some/path; . /some/path/this_file
 #
-# If CPP0X_BUILD is undefined, it is set to whatever directory
+# If CETPKG_BUILD is undefined, it is set to whatever directory
 # you are in when this script is invoked.
 
 test $?shell = 1 && set ss=csh || ss=sh
@@ -32,10 +32,10 @@ set_ msg3='ERROR: You MUST specify either -o, -p, or -d'
 test -z "$1" && ( echo ""; echo "$msg3"; echo "" ) && return
 
 # set the default type, just to avoid confusion
-setenv CPP0X_TYPE RelWithDebInfo
-test "$1" = "-d" && set_ extraqual=":debug" && setenv CPP0X_TYPE Debug
-test "$1" = "-o" && set_ extraqual=":opt" && setenv CPP0X_TYPE Release
-test "$1" = "-p" && set_ extraqual=":prof" && setenv CPP0X_TYPE MinSizeRel
+setenv CETPKG_TYPE RelWithDebInfo
+test "$1" = "-d" && set_ extraqual=":debug" && setenv CETPKG_TYPE Debug
+test "$1" = "-o" && set_ extraqual=":opt" && setenv CETPKG_TYPE Release
+test "$1" = "-p" && set_ extraqual=":prof" && setenv CETPKG_TYPE MinSizeRel
 echo "called with $1, using qualifier a4$extraqual"
 
 # we setup dependent products here
@@ -67,20 +67,27 @@ test -z "$db" -a "$ss" = csh && set me=`history 1|sed 's/^[ 	0-9:]*//'` && test 
     && set db=`sh -c "cd $me >/dev/null 2>&1 && pwd"` && vecho_ 'setting db via interactive history'
 
 test -z "$db" && echo "$msg" || vecho_ "db=$db"
-test -n "$db" && setenv CPP0X_SOURCE `dirname $db`
+test -n "$db" && setenv CETPKG_SOURCE `dirname $db`
 #echo This script lives in $db
 
-tnotnull CPP0X_BUILD && set_ thisdir=$CPP0X_BUILD || set_ thisdir=`pwd`
-test -n "$thisdir" && setenv CPP0X_BUILD $thisdir
+tnotnull CETPKG_BUILD && set_ thisdir=$CETPKG_BUILD || set_ thisdir=`pwd`
+test -n "$thisdir" && setenv CETPKG_BUILD $thisdir
 test -d "$thisdir/lib" || mkdir -p $thisdir/lib
 echo The working build directory is $thisdir
 
+# Package-specific variable names.
+for i in SOURCE BUILD TYPE; do
+  eval setenv CPP0X_${i} \${CETPKG_${i}}
+done
+
+# Show what we've done
 echo
-echo CPP0X_SOURCE=$CPP0X_SOURCE
-echo CPP0X_BUILD=$CPP0X_BUILD
-echo CPP0X_TYPE=$CPP0X_TYPE
+echo CPP0X_SOURCE=CETPKG_SOURCE=$CETPKG_SOURCE
+echo CPP0X_BUILD=CETPKG_BUILD=$CETPKG_BUILD
+echo CPP0X_TYPE=CETPKG_TYPE=$CETPKG_TYPE
 echo Please use this cmake command:
-echo cmake -DCMAKE_INSTALL_PREFIX=/install/path -DCMAKE_BUILD_TYPE=\$CPP0X_TYPE \$CPP0X_SOURCE
+echo cmake -DCMAKE_INSTALL_PREFIX=/install/path -DCMAKE_BUILD_TYPE=\$CETPKG_TYPE \$CETPKG_SOURCE
+
 
 # cleanup before exiting
 test "$ss" = csh && unalias tnotnull nullout set_ vecho_ return
