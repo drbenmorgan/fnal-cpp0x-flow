@@ -67,7 +67,7 @@ if(NOT GCC_VERSION)
          )
 endif()
 
-find_ups_product(cetbuildtools v1_13_03)
+find_ups_product(cetbuildtools v1_13_04)
 find_ups_boost(v1_47_0 regex unit_test_framework)
 
 # ----------------------------------------------------------------------

@@ -5,6 +5,7 @@
 # ======================================================================
 
 include(CetTest)
+cet_set_compiler_flags(ENABLE_ASSERTS DIAGS VIGILANT EXTRA_FLAGS -pedantic )
 
 cet_test(algorithm_test     USE_BOOST_UNIT)
 cet_test(array_test         USE_BOOST_UNIT)
