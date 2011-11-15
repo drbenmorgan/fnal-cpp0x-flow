@@ -9,7 +9,7 @@
 #    set fw_db=/some/path; source /some/path/this_file
 # or  fw_db=/some/path; . /some/path/this_file
 #
-# If CETPKG_BUILD is undefined, it is set to whatever directory
+# If CPP0X_BUILD is undefined, CETPKG_BUILD is set to whatever directory
 # you are in when this script is invoked.
 
 test $?shell = 1 && set ss=csh || ss=sh
@@ -47,7 +47,7 @@ setup cmake
 setup gcc v4_6_1
 setup -j boost v1_47_0 -q gcc46$extraqual
 # set up CET products
-setup cetbuildtools v1_13_04
+setup cetbuildtools v1_14_01
 
 test $?shell = 1 && set ss=csh || ss=sh
 test "$ss" = csh && alias set_ set && alias vecho_ 'if ($?vv == 1) echo \!*' || eval 'vecho_() { test -n "${vv-}" && echo "$@";}'
@@ -70,7 +70,7 @@ test -z "$db" && echo "$msg" || vecho_ "db=$db"
 test -n "$db" && setenv CETPKG_SOURCE `dirname $db`
 #echo This script lives in $db
 
-tnotnull CETPKG_BUILD && set_ thisdir=$CETPKG_BUILD || set_ thisdir=`pwd`
+tnotnull CPP0X_BUILD && set_ thisdir=$CPP0X_BUILD || set_ thisdir=`pwd`
 test -n "$thisdir" && setenv CETPKG_BUILD $thisdir
 test -d "$thisdir/lib" || mkdir -p $thisdir/lib
 echo The working build directory is $thisdir
