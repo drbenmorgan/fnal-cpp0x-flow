@@ -34,8 +34,8 @@ test -z "$1" && ( echo ""; echo "$msg3"; echo "" ) && return
 # set the default type, just to avoid confusion
 setenv CETPKG_TYPE RelWithDebInfo
 test "$1" = "-d" && set_ extraqual=":debug" && setenv CETPKG_TYPE Debug
-test "$1" = "-o" && set_ extraqual=":opt" && setenv CETPKG_TYPE Release
-test "$1" = "-p" && set_ extraqual=":prof" && setenv CETPKG_TYPE MinSizeRel
+test "$1" = "-o" && set_ extraqual=":opt" && setenv CETPKG_TYPE Opt
+test "$1" = "-p" && set_ extraqual=":prof" && setenv CETPKG_TYPE Prof
 echo "called with $1, using qualifier a4$extraqual"
 
 # we setup dependent products here
