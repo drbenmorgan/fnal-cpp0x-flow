@@ -47,7 +47,7 @@ cet_report_compiler_flags()
 cet_check_gcc()
 
 find_ups_product(cetbuildtools v1_15_00)
-find_ups_boost(v1_47_0 regex unit_test_framework)
+find_ups_boost(v1_48_0 regex unit_test_framework)
 
 # ----------------------------------------------------------------------
 # Describe include path:
