@@ -1,0 +1,8 @@
+
+# set up external products
+setup -B gcc v4_6_1
+setup -B boost v1_47_0 -q +$hybridqual$extraqual
+
+# set up CET products
+setup cetpkgsupport
+setup -B cetbuildtools v1_15_00
