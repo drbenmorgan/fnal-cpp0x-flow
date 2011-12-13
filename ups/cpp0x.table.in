@@ -14,7 +14,7 @@ Qualifiers = ""
        fileTest( ${UPS_PROD_DIR}/${${UPS_PROD_NAME_UC}_FQ}, -d, "${UPS_PROD_DIR}/${${UPS_PROD_NAME_UC}_FQ} directory not found: SETUP ABORTED")
 
   Action = GetExtraProducts
-    execute(setup -B boost @BOOST_VERS@ -q @BOOST_BASE_QUAL@)
+    setupRequired(boost @BOOST_VERS@ -q @BOOST_BASE_QUAL@)
 
 Flavor     = ANY
 Qualifiers = "@qualifier@"
@@ -26,7 +26,7 @@ Qualifiers = "@qualifier@"
        fileTest( ${UPS_PROD_DIR}/${${UPS_PROD_NAME_UC}_FQ}, -d, "${UPS_PROD_DIR}/${${UPS_PROD_NAME_UC}_FQ} directory not found: SETUP ABORTED")
 
   Action = GetExtraProducts
-    execute(setup -B boost @BOOST_VERS@ -q @BOOST_BASE_QUAL@)
+    setupRequired(boost @BOOST_VERS@ -q @BOOST_BASE_QUAL@)
 
 Flavor     = ANY
 Qualifiers = "@qualifier@:debug"
@@ -38,7 +38,7 @@ Qualifiers = "@qualifier@:debug"
        fileTest( ${UPS_PROD_DIR}/${${UPS_PROD_NAME_UC}_FQ}, -d, "${UPS_PROD_DIR}/${${UPS_PROD_NAME_UC}_FQ} directory not found: SETUP ABORTED")
 
   Action = GetExtraProducts
-    execute(setup -B boost @BOOST_VERS@ -q @BOOST_BASE_QUAL@:debug)
+    setupRequired(boost @BOOST_VERS@ -q @BOOST_BASE_QUAL@:debug)
 
 Flavor     = ANY
 Qualifiers = "@qualifier@:opt"
@@ -50,7 +50,7 @@ Qualifiers = "@qualifier@:opt"
        fileTest( ${UPS_PROD_DIR}/${${UPS_PROD_NAME_UC}_FQ}, -d, "${UPS_PROD_DIR}/${${UPS_PROD_NAME_UC}_FQ} directory not found: SETUP ABORTED")
 
   Action = GetExtraProducts
-    execute(setup -B boost @BOOST_VERS@ -q @BOOST_BASE_QUAL@:opt)
+    setupRequired(boost @BOOST_VERS@ -q @BOOST_BASE_QUAL@:opt)
 
 Flavor     = ANY
 Qualifiers = "@qualifier@:prof"
@@ -62,7 +62,7 @@ Qualifiers = "@qualifier@:prof"
        fileTest( ${UPS_PROD_DIR}/${${UPS_PROD_NAME_UC}_FQ}, -d, "${UPS_PROD_DIR}/${${UPS_PROD_NAME_UC}_FQ} directory not found: SETUP ABORTED")
 
   Action = GetExtraProducts
-    execute(setup -B boost @BOOST_VERS@ -q @BOOST_BASE_QUAL@:prof)
+    setupRequired(boost @BOOST_VERS@ -q @BOOST_BASE_QUAL@:prof)
 
 
 Common:
@@ -90,7 +90,7 @@ Common:
     # uncomment or add to this list as relevant
     setupRequired(cetpkgsupport)
     exeActionRequired(GetExtraProducts)
-    execute(setup -B gcc @GCC_VERSION@ )
+    setupRequired(gcc @GCC_VERSION@ )
 
 End:
 # End Group definition
