@@ -21,6 +21,8 @@ cmake_minimum_required(VERSION 2.8)  # use cmake 2.8 or later
 # ----------------------------------------------------------------------
 # Describe product:
 
+project(cpp0x)
+
 # cetbuildtools contains our cmake modules
 set (CETBUILDTOOLS_VERSION $ENV{CETBUILDTOOLS_VERSION})
 if(NOT CETBUILDTOOLS_VERSION)
