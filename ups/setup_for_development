@@ -51,7 +51,7 @@ test -z "$1" && setenv CETPKG_QUAL "$defaultqual"
 # e1 is a special case
 test "$1" = "e1" && set_ hybridqual=$1 && set_ rootqual=gcc46
 
-echo "called with $type, using qualifiers +$CETPKG_QUAL$extraqual and +$hybridqual$extraqual"
+echo "called with $type, using qualifiers +$CETPKG_QUAL$extraqual for this package."
 
 # now is if we were passed a path or if not, if we can figure it out (maybe if we are interactive)
 #   bash, zsh, ksh and tcsh pass params to a source file, csh does not. but someone will be writing csh scripts
