@@ -47,6 +47,7 @@ BOOST_AUTO_TEST_CASE( basic_conversions_test )
 BOOST_AUTO_TEST_CASE( other_properties_test )
 {
   BOOST_CHECK( sizeof(std::nullptr_t) == sizeof(void*) );
+  BOOST_CHECK( std::nullptr_t() == nullptr );
   BOOST_CHECK( A(0) == A(nullptr) );
   char const * s1 = 0;
   char const * s2 = "abc";

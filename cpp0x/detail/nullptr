@@ -7,7 +7,7 @@
 //
 // ----------------------------------------------------------------------
 //
-// This file is an edited excerpt of libcxx/include/cstddef, a part of
+// This file contains an edited excerpt of libcxx/include/cstddef from
 //                     The LLVM Compiler Infrastructure
 // which is "dual licensed under the MIT and the _University of Illinois
 // Open Source Licenses".  For details, see
@@ -32,7 +32,8 @@ struct std::_::__nullptr_t
   void * _;
   struct __nat { int _; };
 
-  __nullptr_t( int __nat::* )  { }
+  __nullptr_t(              )  { ; }
+  __nullptr_t( int __nat::* )  { ; }
 
 #ifndef __CINT__
   operator int __nat::* ( ) const  { return 0; }
