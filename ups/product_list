@@ -5,4 +5,4 @@ setup -B boost v1_48_0 -q +$hybridqual$extraqual
 
 # set up CET products
 setup cetpkgsupport
-setup cetbuildtools v1_15_03
+setup cetbuildtools v1_15_07

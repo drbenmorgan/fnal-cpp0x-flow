@@ -74,9 +74,11 @@ test -n "$thisdir" && setenv CETPKG_BUILD $thisdir
 test -d "$thisdir/lib" || mkdir -p $thisdir/lib
 echo The working build directory is $thisdir
 
+echo ----------- check this block for errors -----------------------
 # we setup dependent products here
 setenv UPS_OPTIONS -B
 source $CETPKG_SOURCE/ups/product_list
+echo ----------------------------------------------------------------
 
 # Package-specific variable names.
 setenv CPP0X_$SOURCE ${CETPKG_SOURCE}
