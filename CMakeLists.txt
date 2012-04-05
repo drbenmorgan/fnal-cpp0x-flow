@@ -48,19 +48,8 @@ cet_report_compiler_flags()
 
 cet_check_gcc()
 
-find_ups_product(cetbuildtools v1_15_00)
+find_ups_product(cetbuildtools v1_16_00)
 find_ups_boost(v1_48_0 regex unit_test_framework)
-
-# ----------------------------------------------------------------------
-# Describe include path:
-
-include_directories("${PROJECT_SOURCE_DIR}" )  # project's headers
-
-# ----------------------------------------------------------------------
-# Describe build tree layout:
-
-set(LIBRARY_OUTPUT_PATH    ${PROJECT_BINARY_DIR}/lib)
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 
 # ----------------------------------------------------------------------
 # Describe source tree layout:
