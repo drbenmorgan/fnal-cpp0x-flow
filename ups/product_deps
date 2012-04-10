@@ -18,7 +18,7 @@ bindir      fq_dir	bin
 product		version
 boost		v1_49_0
 gcc		v4_6_1
-cetbuildtools	v1_16_00
+cetbuildtools	v1_17_00
 
 # Matrix of qualifiers versus dependent products
 qualifier	boost		gcc	cetbuildtools	notes

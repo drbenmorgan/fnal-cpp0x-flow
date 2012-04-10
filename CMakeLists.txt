@@ -4,7 +4,6 @@
 #  cd .../path/to/build/directory
 #  source .../path/to/cpp0x/ups/setup_for_development
 #  cmake [-DCMAKE_INSTALL_PREFIX=/install/path]
-#        -Dqualifier:STRING=$CETPKG_QUAL
 #        -DCMAKE_BUILD_TYPE=$CETPKG_TYPE
 #        $CETPKG_SOURCE
 #  make
@@ -31,11 +30,7 @@ endif()
 set(CMAKE_MODULE_PATH $ENV{CETBUILDTOOLS_DIR}/Modules ${CMAKE_MODULE_PATH})
 
 include(CetCMakeEnv)
-
-if ( NOT qualifier )
-    message (FATAL_ERROR "ERROR: please call cmake with -Dqualifier:STRING=qualifier")
-endif ( NOT qualifier )
-cet_cmake_env( cpp0x v1_03_07 ${qualifier} )
+cet_cmake_env()
 
 cet_set_compiler_flags(DIAGS VIGILANT WERROR EXTRA_FLAGS -pedantic)
 if ("${qualifier}" STREQUAL "e1")
@@ -48,7 +43,7 @@ cet_report_compiler_flags()
 
 cet_check_gcc()
 
-find_ups_product(cetbuildtools v1_16_00)
+find_ups_product(cetbuildtools v1_17_00)
 find_ups_boost(v1_48_0 regex unit_test_framework)
 
 # ----------------------------------------------------------------------
@@ -59,7 +54,7 @@ add_subdirectory(test )             # test code
 add_subdirectory(ups )              # ups files
 
 # ----------------------------------------------------------------------
-# packaging utility
+# Packaging utility
 
 include(UseCPack)
 
