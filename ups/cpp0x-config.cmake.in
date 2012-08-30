@@ -1,9 +1,7 @@
-# compute installation prefix relative to this file
-get_filename_component (_dir "${CMAKE_CURRENT_LIST_FILE}" PATH)
-get_filename_component (_prefix "${_dir}/../.." ABSOLUTE)
 
-# import the targets
-include ("${_prefix}/lib/cpp0x-@version@/gromit-targets.cmake")
+set( @product@_VERSION @VERSION_MAJOR@.@VERSION_MINOR@.@VERSION_PATCH@ )
+set( @product@_UPS_VERSION v@VERSION_MAJOR@_@VERSION_MINOR@_@VERSION_PATCH@ )
 
-# report other information
-set (cpp0x_INCLUDE_DIRS "${_prefix}/include/cpp0x-@version@")
+@PACKAGE_INIT@
+
+check_required_components(@product@)
