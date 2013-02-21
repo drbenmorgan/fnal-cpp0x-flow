@@ -45,8 +45,8 @@ cet_report_compiler_flags()
 
 cet_check_gcc()
 
-find_ups_product(cetbuildtools v2_03_00)
-find_ups_boost(v1_48_0 regex unit_test_framework)
+find_ups_product(cetbuildtools v3_01_00)
+find_ups_boost(v1_50_0)
 
 # ----------------------------------------------------------------------
 # Describe source tree layout:
