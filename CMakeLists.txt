@@ -45,7 +45,7 @@ cet_report_compiler_flags()
 
 cet_check_gcc()
 
-find_ups_product(cetbuildtools v3_02_00)
+find_ups_product(cetbuildtools v3_06_00)
 find_ups_boost(v1_50_0)
 
 # ----------------------------------------------------------------------

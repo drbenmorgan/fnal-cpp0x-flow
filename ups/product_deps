@@ -19,7 +19,7 @@ product		version
 boost		v1_53_0
 gcc		v4_8_1
 
-only_for_build cetbuildtools	v3_05_02
+only_for_build cetbuildtools	v3_06_00
 
 # Matrix of qualifiers versus dependent products
 qualifier	boost		gcc	notes

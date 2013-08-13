@@ -30,8 +30,8 @@ cet_test(utility_test       USE_BOOST_UNIT)
 cet_test(uniform_sampling   USE_BOOST_UNIT)
 cet_test(bernoulli_sampling USE_BOOST_UNIT)
 cet_test(poisson_sampling   USE_BOOST_UNIT
-  OPTIONAL_GROUPS LONG
+  OPTIONAL_GROUPS LONG RELEASE
   )
 cet_test(normal_sampling    USE_BOOST_UNIT
-  OPTIONAL_GROUPS LONG
+  OPTIONAL_GROUPS LONG RELEASE
   )
