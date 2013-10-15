@@ -1,6 +1,6 @@
 # The parent line must be the first non-comment line in the file
 # This line defines the product name and version
-parent cpp0x v1_03_24
+parent cpp0x v1_03_25
 defaultqual e4
 # These optional lines define the installed directories where
 # headers, libraries, and executables will be found
