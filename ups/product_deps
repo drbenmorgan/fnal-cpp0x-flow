@@ -1,7 +1,7 @@
 # The parent line must be the first non-comment line in the file
 # This line defines the product name and version
 parent cpp0x v1_03_25
-defaultqual e4
+defaultqual e5
 # These optional lines define the installed directories where
 # headers, libraries, and executables will be found
 # Use them only if your product does not conform to the defaults
@@ -16,13 +16,13 @@ bindir      fq_dir	bin
 # The required "product version" line indicates that the remaining lines
 # define product/version pairs
 product		version
-boost		v1_53_0
-gcc		v4_8_1
+boost		v1_55_0
+gcc		v4_8_2
 
-only_for_build cetbuildtools	v3_06_07
+only_for_build cetbuildtools	v3_08_00
 
 # Matrix of qualifiers versus dependent products
 qualifier	boost		gcc	notes
-e4:debug	e4:debug	-nq-
-e4:opt		e4:opt		-nq-
-e4:prof		e4:prof		-nq-
+e5:debug	e5:debug	-nq-
+e5:opt		e5:opt		-nq-
+e5:prof		e5:prof		-nq-
