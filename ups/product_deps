@@ -20,7 +20,7 @@ boost    v1_55_0
 gcc      v4_8_2
 icc      v14_0_2
 
-only_for_build cetbuildtools    v3_09_01
+only_for_build cetbuildtools    v3_09_02
 
 # Matrix of qualifiers versus dependent products
 qualifier	boost		gcc	icc	compiler	notes
