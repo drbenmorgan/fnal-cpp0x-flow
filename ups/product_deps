@@ -20,8 +20,8 @@ product  version
 boost    v1_55_0
 gcc      v4_8_2
 icc      v14_0_2
-
-only_for_build cetbuildtools    v3_13_00
+cetbuildtools	v4_00_00	-	only_for_build
+end_product_list
 
 # Matrix of qualifiers versus dependent products
 qualifier	boost		gcc	icc	compiler	notes
@@ -30,6 +30,7 @@ e5:opt		e5:opt		-nq-	-	gcc
 e5:prof		e5:prof		-nq-	-	gcc
 i1:debug	e5:debug	-	i1      icc
 i1:prof         e5:prof         -	i1      icc
+end_qualifier_list
 
 # Local Variables:
 # tab-width: 8
