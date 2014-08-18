@@ -9,6 +9,7 @@ set( PUBLIC_HDRS
   algorithm
   array
   cmath
+  compiler_macros.h
   cstddef
   cstdint
   functional
