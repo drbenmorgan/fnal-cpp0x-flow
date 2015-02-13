@@ -12,6 +12,13 @@
 
 long n = 0L;
 
+// Temporarily work around a known bug with the intel compiler
+#if defined (__ICC) && __INTEL_COMPILER_BUILD_DATE <= 20140120
+#define NANINF_CONST
+#else
+#define NANINF_CONST const
+#endif
+
 template< class T >
 void
   count( T )  { ++n; }
@@ -20,7 +27,7 @@ BOOST_AUTO_TEST_SUITE( cmath_test )
 
 BOOST_AUTO_TEST_CASE( inf_test )
 {
-  double const d = std::numeric_limits<double>::infinity();
+  double NANINF_CONST d = std::numeric_limits<double>::infinity();
   BOOST_CHECK( std::isinf(d) );
   BOOST_CHECK( ! std::isnan(d) );
   BOOST_CHECK( ! std::isnormal(d) );
@@ -28,7 +35,7 @@ BOOST_AUTO_TEST_CASE( inf_test )
 
 BOOST_AUTO_TEST_CASE( nan_test )
 {
-  double const d = 0.0 / 0.0;
+  double NANINF_CONST d = 0.0 / 0.0;
   BOOST_CHECK( std::isnan(d) );
   BOOST_CHECK( ! std::isinf(d) );
   BOOST_CHECK( ! std::isnormal(d) );
