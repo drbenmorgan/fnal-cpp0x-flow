@@ -50,3 +50,6 @@ for integration/portability. The feature branch can then be published
 to *this* repo, and the submodule commit move to use it (or the tag
 that is made off of it). More later...
 
+# Creating a feature branch when working as a submodule
+Well, this is being done on a feature branch as a submodule!
+
